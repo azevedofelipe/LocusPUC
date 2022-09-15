@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from backend.lugar import views as lugar_views      # Importar views.py do app de lugar como lugar_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/lugar', lugar_views.LugarList.as_view()),                     # Lista e criacao de lugares
+    path('api/lugar/<int:pk>', lugar_views.LugarDetalhes.as_view()),        # Recebe o pk do lugar especifico para ver mais detalhes
 ]
