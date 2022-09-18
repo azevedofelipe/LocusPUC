@@ -8,5 +8,3 @@ source/content/static/
 
 env/
 tmp/
-
-db.sqlite3
