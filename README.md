@@ -26,3 +26,16 @@ python manage.py createsuperuser
 ```
 python manage.py runserver
 ```
+## Iniciar Aplicação Frontend
+### Entrar na pasta Frontend
+```
+cd frontend
+```
+### Instalar dependências (Apenas na primeira vez)
+```
+npm i
+```
+### Iniciar
+```
+npm start
+```

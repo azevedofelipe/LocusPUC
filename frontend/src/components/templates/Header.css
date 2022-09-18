@@ -1,0 +1,11 @@
+.header {
+  background-color: #343A40;
+}
+
+.header div {
+  height: 100%;
+}
+
+.header h1 {
+    color: #fff;
+}
