@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'backend.lugar',
     'backend.eventos',
     'taggit',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
