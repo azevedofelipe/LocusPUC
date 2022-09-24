@@ -141,3 +141,8 @@ TAGGIT_CASE_INSENSITIVE = True
 
 MEDIA_URL = 'backend/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'backend/media')
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}

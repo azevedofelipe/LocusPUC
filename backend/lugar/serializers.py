@@ -1,4 +1,4 @@
-from .models import Lugar
+from .models import Lugar, Like
 from rest_framework import serializers
 from taggit.serializers import (TagListSerializerField,TaggitSerializer)
 
@@ -8,4 +8,10 @@ class LugarSerializer(TaggitSerializer, serializers.ModelSerializer):
 
     class Meta:
         model = Lugar
-        fields = ('id','titulo','descricao','thumb','autor','tags')
+        fields = ('id','titulo','descricao','thumb','autor','tags', 'likes_count','dislikes_count')
+
+
+class LikeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Like
+        fields = '__all__'

@@ -14,16 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from backend.lugar import views as lugar_views      # Importar views.py do app de lugar como lugar_views
+from django.urls import path, include
 from backend.eventos import views as evento_views
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/lugar', lugar_views.LugarList.as_view()),                     # Lista e criacao de lugares
-    path('api/lugar/<int:pk>', lugar_views.LugarDetalhes.as_view()),        # Recebe o pk do lugar especifico para ver mais detalhes
+    path('api/lugar/', include('backend.lugar.urls')),                      # Include urls.py do app lugar aonde tem todos os urls para cada API de lugar
     path('api/eventos', evento_views.EventoList.as_view()),                 # Lista e criacao de eventos
     path('api/eventos/<int:pk>', evento_views.EventoDetalhes.as_view()),    # Recebe o pk do evento especifico para ver mais detalhes
 ]
