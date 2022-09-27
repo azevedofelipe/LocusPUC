@@ -23,10 +23,13 @@ class Lugar(models.Model):
 
 
 class Avaliacao(models.Model):
+    class Voto(models.IntegerChoices):
+        UPVOTE = 1
+        NEUTRAL = 0
+        DOWNVOTE = -1
     lugar = models.ForeignKey(Lugar,on_delete=models.CASCADE)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    avaliacao = models.TextField()
-    data_hora = models.DateTimeField(auto_now_add=True)
+    avaliacao = models.IntegerField(choices=Voto.choices)
 
     def __str__(self):
         return self.avaliacao
