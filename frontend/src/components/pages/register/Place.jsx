@@ -1,9 +1,8 @@
 import './Place.css'
 import { Component } from 'react'
-import Main from '../templates/Main'
+import Main from '../../templates/Main'
 
 export default class Place extends Component {
-
   render() {
     return (
       <Main>
@@ -13,7 +12,7 @@ export default class Place extends Component {
           <ul>
             <li>
               <strong>Nome do Local</strong><br />
-              <input type='text' placeholder='Nome do local' />
+              <input type='text' placeholder='Nome do local' required />
             </li>
             <li>
               <strong>Tipo do Local </strong><br />
@@ -24,17 +23,36 @@ export default class Place extends Component {
               </select>
             </li>
             <li>
-              <strong>Descrição</strong><br />
-              <textarea cols='25' rows='3' placeholder='Breve descrição'></textarea>
+              <strong>Tag do Local </strong><br />
+              <fieldset>
+                <div>
+                  <input type="checkbox" id="socialize" name="Socializar" />
+                  <label for="socialize"> Socializar</label>
+                </div>
+
+                <div>
+                  <input type="checkbox" id="eat" name="Comer" />
+                  <label for="eat"> Comer</label>
+                </div>
+
+                <div>
+                  <input type="checkbox" id="study" name="Estudar" />
+                  <label for="study"> Estudar</label>
+                </div>
+              </fieldset>
             </li>
             <li>
-              <input type="file" id="files" className="hidden"/>
+              <strong>Descrição</strong><br />
+              <textarea cols='25' rows='3' placeholder='Breve descrição' required></textarea>
+            </li>
+            <li>
+              <input type="file" id="files" class="hidden" required />
               <label className='especifico btn btn-secondary' htmlFor="files">Escolha Imagem</label>
             </li>
             <li>
               <button className='btn btn-secondary btn-lg'> Registrar     Local</button>
             </li>
-          </ul> 
+          </ul>
         </form>
       </Main>
     )
