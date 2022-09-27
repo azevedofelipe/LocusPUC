@@ -22,17 +22,10 @@ class Lugar(models.Model):
         return self.likes.filter(voto=-1).count()
 
 
-class Avaliacao(models.Model):
-    class Voto(models.IntegerChoices):
-        UPVOTE = 1
-        NEUTRAL = 0
-        DOWNVOTE = -1
+class Comentario(models.Model):
     lugar = models.ForeignKey(Lugar,on_delete=models.CASCADE)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
-    avaliacao = models.IntegerField(choices=Voto.choices)
-
-    def __str__(self):
-        return self.avaliacao
+    autor = models.ForeignKey(User,on_delete=models.CASCADE)
+    comentario = models.TextField()
 
 # Tabela de likes de lugar
 class Like(models.Model):

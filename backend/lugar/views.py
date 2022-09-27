@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from .models import Like, Lugar
+from .models import Comentario, Like, Lugar
 from rest_framework import generics
-from .serializers import LugarSerializer, LikeSerializer
+from .serializers import ComentarioSerializer, LugarSerializer, LikeSerializer
 from django_filters import rest_framework as filters
 
 
@@ -31,3 +31,11 @@ class LikeCriar(generics.ListCreateAPIView):
 class LikeDetalhes(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = LikeSerializer
     queryset = Like.objects.all()
+
+class ComentarioCriar(generics.ListCreateAPIView):
+    serializer_class = ComentarioSerializer
+    queryset = Comentario.objects.all()
+
+class ComentarioDetalhes(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ComentarioSerializer
+    queryset = Comentario.objects.all()
