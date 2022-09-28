@@ -24,6 +24,7 @@ urlpatterns = [
     path('api/lugar/', include('backend.lugar.urls')),                      # Include urls.py do app lugar aonde tem todos os urls para cada API de lugar
     path('api/eventos', evento_views.EventoList.as_view()),                 # Lista e criacao de eventos
     path('api/eventos/<int:pk>', evento_views.EventoDetalhes.as_view()),    # Recebe o pk do evento especifico para ver mais detalhes
+    path('api/auth/', include('backend.conta.urls')),
 ]
 
 # Link para a foto de cada lugar

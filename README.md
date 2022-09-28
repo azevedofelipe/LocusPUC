@@ -14,6 +14,8 @@ cd Projeto-INF1039
 ```
 pip install django-taggit
 pip install pipenv
+pip install django-filter
+pip install django-rest-knox
 
 pipenv install
 pipenv shell
@@ -36,16 +38,23 @@ python manage.py createsuperuser
 ```
 python manage.py runserver
 ```
+
 ## Iniciar Aplicação Frontend
+
 ### Entrar na pasta Frontend
+
 ```
 cd frontend
 ```
+
 ### Instalar dependências (Apenas na primeira vez)
+
 ```
 npm i
 ```
+
 ### Iniciar
+
 ```
 npm start
 ```

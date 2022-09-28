@@ -9,8 +9,8 @@ from django_filters import rest_framework as filters
 class LugarList(generics.ListCreateAPIView):
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_fields = {
-            'tags__name' : ['in','exact'],              # 'in' deixa filtrar por mais de um tag ao mesmo tempo e.g. ?tags__name__in=Comer,Estudar
-            'titulo' : ['contains','exact']             # 'contains' url syntax: ?titulo__contains=biblio -> Biblioteca
+            'tags__name' : ['in'],              # 'in' deixa filtrar por mais de um tag ao mesmo tempo e.g. ?tags__name__in=Comer,Estudar
+            'titulo' : ['contains']             # 'contains' url syntax: ?titulo__contains=biblio -> Biblioteca
     }
     serializer_class = LugarSerializer
     queryset = Lugar.objects.all().distinct()           
