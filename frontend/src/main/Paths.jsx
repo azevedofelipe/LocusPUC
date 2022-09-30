@@ -8,7 +8,7 @@ import Home from '../components/pages/home/Home'
 export default function Paths() {
   return (
     <Routes>
-      <Route exact path="/" element={<Home color="white" />} />
+      <Route exact path="/" element={<Home />} />
       <Route path="/registrarConta" element={<Account />} />
       <Route path="/registrarLugar" element={<Place />} />
       <Route path="/categorias" element={<Categories />} />

@@ -1,5 +1,5 @@
 import Main from '../../templates/Main'
-import imagemIncio from '../../../assets/inicio.jpg'
+import imagemIncio from '../../../assets/imgs/inicio.jpg'
 import { Component } from 'react'
 
 export default class Account extends Component {

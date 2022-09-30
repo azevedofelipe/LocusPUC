@@ -1,0 +1,26 @@
+@font-face {
+    font-family: RobotoMonoRegular;
+    src: url('./assets/fonts/RobotoMono-Thin.ttf');
+}
+@font-face {
+    font-family: RobotoMonoBold;
+    src: url('./assets/fonts/RobotoMono-Bold.ttf');
+}
+
+:root {
+  --text-color: #eee;
+  --accent-color: rgba(92, 184, 228, 1);
+  --accent-color-opacity: rgba(92, 184, 228, 0)
+}
+
+body {
+  background: linear-gradient(to right, rgb(22, 34, 42), rgb(58, 96, 115));
+}
+
+* {
+  font-family: 'RoboMonoRegular';
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  color: var(--text-color);
+}

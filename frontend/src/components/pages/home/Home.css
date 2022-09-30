@@ -1,0 +1,14 @@
+.home {
+  height: 100%;
+}
+
+.home .img {
+  height: 80%;
+}
+
+.home img {
+  height: 100%;
+  width: 100%;
+  background-color: var(--accent-color);
+  border: none;
+}

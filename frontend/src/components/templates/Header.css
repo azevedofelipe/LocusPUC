@@ -1,15 +1,28 @@
-.header {
-  background-color: #343A40;
-}
-
-.header div {
-  height: 100%;
-}
-
 .header h1 {
-    color: #fff;
+  color: var(--accent-color);
+  font-size: 50px;
+}
+
+.header h2 {
+  font-size: 30px;
+}
+
+.header > div {
+  margin-top: 50px;
 }
 
 .header a {
+  font-size: 25px;
+  min-width: 250px;
+  padding: 20px 25px;
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
   text-decoration: none;
+  color: var(--accent-color);
+  transition: all .3s linear;
+}
+
+.header a:hover {
+  background-color: var(--accent-color);
+  color: var(--text-color);
 }
