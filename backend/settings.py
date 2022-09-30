@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'backend.eventos',
     'taggit',
     'django_filters',
+    'knox',
+    'backend.conta'
 ]
 
 MIDDLEWARE = [
@@ -141,5 +143,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'backend/media')
 
 
 REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'knox.auth.TokenAuthentication',
+    ]
 }

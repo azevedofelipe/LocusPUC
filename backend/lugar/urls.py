@@ -8,5 +8,6 @@ urlpatterns = [
     path('<int:pk>/',views.LugarDetalhes.as_view()),        # Detalhes de lugar, pk de lugar especifico
     path('likes/',views.LikeCriar.as_view()),               # Lista de todos os likes
     path('like/<int:pk>',views.LikeDetalhes.as_view()),     # Detalhes de um like em especifico
-
+    path('comentarios',views.ComentarioCriar.as_view()),
+    path('comentarios/<int:pk>',views.ComentarioDetalhes.as_view())
 ]
