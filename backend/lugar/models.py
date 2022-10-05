@@ -25,7 +25,7 @@ class Lugar(models.Model):
 class Comentario(models.Model):
     lugar = models.ForeignKey(Lugar,on_delete=models.CASCADE)
     autor = models.ForeignKey(User,on_delete=models.CASCADE)
-    comentario = models.TextField()
+    texto = models.TextField()
 
 # Tabela de likes de lugar
 class Like(models.Model):
