@@ -3,51 +3,50 @@ import { Component } from 'react'
 import Main from '../../templates/Main'
 
 export default class Place extends Component {
+
   render() {
     return (
       <Main>
-        <h1 className="display-4 px-3"> <strong>Registre novo local</strong></h1>
+        <h1>Registre novo local</h1>
         <hr />
         <form>
           <ul>
             <li>
-              <strong>Nome do Local</strong><br />
+              <strong>Nome do Local</strong>
+              <br />
               <input type='text' placeholder='Nome do local' required />
             </li>
             <li>
               <strong>Tipo do Local </strong><br />
               <select className='px-2'>
-                <option value='socializar'> socializar </option>
-                <option value='comer'> comer</option>
-                <option value='estudar'>estudar </option>
+                <option value='socializar'> Socializar </option>
+                <option value='comer'> Comer</option>
+                <option value='estudar'> Estudar </option>
               </select>
             </li>
-            <li>
-              <strong>Tag do Local </strong><br />
-              <fieldset>
-                <div>
-                  <input type="checkbox" id="socialize" name="Socializar" />
-                  <label for="socialize"> Socializar</label>
-                </div>
+            <li><strong>Tag do Local </strong></li>
+            <li className="form-check form-check-inline">
+              <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+              <label className="form-check-label" htmlFor="inlineCheckbox1">Socializar</label>
+            </li>
+            <li className="form-check form-check-inline">
+              <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+              <label className="form-check-label" htmlFor="inlineCheckbox1">Comer</label>
+            </li>
+            <li className="form-check form-check-inline">
+              <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+              <label className="form-check-label" htmlFor="inlineCheckbox1">Estudar</label>
+            </li>
+            <li className="form-group">
+              <br></br>
+              <label htmlFor="story"><strong>Descrição</strong></label>
+              <textarea id="story" name="story" rows="5" cols="33" required></textarea>
 
-                <div>
-                  <input type="checkbox" id="eat" name="Comer" />
-                  <label for="eat"> Comer</label>
-                </div>
-
-                <div>
-                  <input type="checkbox" id="study" name="Estudar" />
-                  <label for="study"> Estudar</label>
-                </div>
-              </fieldset>
             </li>
             <li>
-              <strong>Descrição</strong><br />
-              <textarea cols='25' rows='3' placeholder='Breve descrição' required></textarea>
-            </li>
-            <li>
-              <input type="file" id="files" class="hidden" required />
-              <label className='especifico btn btn-secondary' htmlFor="files">Escolha Imagem</label>
+              <input type="file" id="files" className="hidden" required />
+              <span></span>
+              <label className='especifico btn btn-success' htmlFor="files">Escolha Imagem</label>
             </li>
             <li>
               <button className='btn btn-secondary btn-lg'> Registrar     Local</button>

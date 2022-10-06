@@ -1,0 +1,45 @@
+.event-register h1 {
+  color: var(--accent-color);
+  font-size: 50px;
+  margin-top: 40px;
+}
+
+.event-register .img {
+  margin-top: 45px;
+}
+
+.event-register input {
+  min-width: 275px;
+}
+
+.event-register .input-image {
+  min-width: 275px;
+}
+
+.event-register img {
+  height: 100%;
+  width: 100%;
+  background-color: var(--accent-color);
+  border: none;
+}
+
+.event-register label {
+  font-size: 20px;
+}
+
+.event-register button {
+  background-color: transparent;
+  font-size: 25px;
+  min-width: 275px;
+  padding: 15px 25px;
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--accent-color);
+  transition: all .3s linear;
+}
+
+.event-register button:hover {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}

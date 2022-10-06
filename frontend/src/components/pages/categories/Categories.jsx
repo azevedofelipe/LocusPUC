@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import Main from '../../templates/Main'
 import PlaceBox from '../../place/PlaceBox'
 
-
 export default class Categories extends Component {
 
   state = {
@@ -30,8 +29,7 @@ export default class Categories extends Component {
 
   fillField(e) {
     const field = { ...this.state }
-    console.log(this.state.socialize)
-    if (e.target.name==='eat' || e.target.name==='study' || e.target.name==='socialize') {
+    if (e.target.name === 'eat' || e.target.name === 'study' || e.target.name === 'socialize') {
       if (this.state[e.target.name] !== '')
         field[e.target.name] = ''
       else {
@@ -45,7 +43,7 @@ export default class Categories extends Component {
 
   searchPlace(e) {
     e.preventDefault()
-    if (this.state.eat==='' && this.state.socialize==='' && this.state.study==='') {
+    if (this.state.eat === '' && this.state.socialize === '' && this.state.study === '') {
       fetch(`http://127.0.0.1:8000/api/lugar/?titulo__contains=${this.state.word}`)
         .then(resp => resp.json())
         .then(places => this.setState({ places }))
@@ -69,35 +67,36 @@ export default class Categories extends Component {
   render() {
     return (
       <Main>
-        <h1 className='display-4'>
-          Categorias
-        </h1>
-        <hr />
-        <div className='d-flex align-items-center mb-4'>
-          <Link to="/registrarLugar" className="btn btn-secondary" role="button">
-            Criar Lugar
-          </Link>
-          <form className='search form m-0' onSubmit={this.searchPlace}>
-            <div className="form-items form-group d-flex justify-content-between mx-5">
-              <div>
-                <input onClick={this.fillField} value='Comer' type='checkbox' id='eat' name='eat' />
-                <label htmlFor="eat">Comer</label>
+        <div className='pb-2'>
+          <h1 className='display-4'>
+            Categorias
+          </h1>
+          <hr />
+          <div className='d-flex align-items-center mb-4'>
+            <Link to="/registrarLugar" className="btn btn-secondary" role="button">Criar Lugar</Link>
+            <Link to="/registrarEvento" className="btn btn-secondary ml-5" role="button">Criar Evento</Link>
+            <form className='search form m-0' onSubmit={this.searchPlace}>
+              <div className="form-items form-group d-flex justify-content-between mx-5">
+                <div>
+                  <input onClick={this.fillField} value='Comer' type='checkbox' id='eat' name='eat' />
+                  <label htmlFor="eat">Comer</label>
+                </div>
+                <div>
+                  <input onClick={this.fillField} value='Estudar' type='checkbox' id='study' name='study' />
+                  <label htmlFor="study">Estudar</label>
+                </div>
+                <div>
+                  <input onClick={this.fillField} value='Socializar' type="checkbox" id='socialize' name='socialize' />
+                  <label htmlFor="socialize">Socializar</label>
+                </div>
+                <input type="text" name='word' onChange={this.fillField} value={this.state.word} className="form-control input-sm mx-2" id="place" placeholder="Nome do Lugar" />
+                <button type="submit" className="btn btn-primary py-0 px-2 ml-2">Pesquisar</button>
               </div>
-              <div>
-                <input onClick={this.fillField} value='Estudar' type='checkbox' id='study' name='study'/>
-                <label htmlFor="study">Estudar</label>
-              </div>
-              <div>
-                <input onClick={this.fillField} value='Socializar' type="checkbox" id='socialize' name='socialize' />
-                <label htmlFor="socialize">Socializar</label>
-              </div>
-              <input type="text" name='word' onChange={this.fillField} value={this.state.word} className="form-control input-sm mx-2" id="place" placeholder="Nome do Lugar" />
-              <button type="submit" className="btn btn-primary py-0 px-2 ml-2">Pesquisar</button>
-            </div>
-          </form>
-        </div>
-        <div>
-          {this.renderPlaces()}
+            </form>
+          </div>
+          <div>
+            {this.renderPlaces()}
+          </div>
         </div>
       </Main>
     )
