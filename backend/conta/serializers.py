@@ -58,6 +58,10 @@ class AlterarSenhaSerializer(serializers.ModelSerializer):
         return value
 
     def update(self, instance, validated_data):
+        user = self.context['request'].user
+
+        if user.pk != instance.pk:                                                                          # So pode atualizar senha do mesmo usuario
+            raise serializers.ValidationError({"authorize": "Voce nao tem permissoes desse usuario"})
 
         instance.set_password(validated_data['password'])
         instance.save()
