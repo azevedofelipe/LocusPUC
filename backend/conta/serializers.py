@@ -20,6 +20,12 @@ class CadastroSerializer(serializers.ModelSerializer):
     def validate_password(self,value):
         validate_password(value)
         return value
+    
+    # Valida se email ja existe na base
+    def validate_email(self,value):
+        if User.objects.filter(email=value).exists():
+            raise serializers.ValidationError("Email ja existe")
+        return value
 
     # Cria usuario na tabela de users com senha hashed
     def create(self, validated_data):
