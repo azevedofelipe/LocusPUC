@@ -22,7 +22,7 @@ export default class Nav extends Component {
               Registrar Conta
             </Link>
           </div>
-          <div className='button mt-5 col-12 gx-3'>
+          <div className='button mt-5 mb-4 col-12 gx-3'>
             <Link className='button' to="/categorias">
               Buscar Lugares
             </Link>

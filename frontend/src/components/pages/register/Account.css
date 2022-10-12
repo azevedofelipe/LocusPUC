@@ -1,0 +1,41 @@
+.account-register h1 {
+  color: var(--accent-color);
+  font-size: 50px;
+  margin-top: 40px;
+}
+
+.account-register .img {
+  margin-top: 45px;
+}
+
+.account-register input {
+  min-width: 275px;
+}
+
+.account-register img {
+  height: 100%;
+  width: 100%;
+  background-color: var(--accent-color);
+  border: none;
+}
+
+.account-register label {
+  font-size: 20px;
+}
+
+.account-register button {
+  background-color: transparent;
+  font-size: 25px;
+  min-width: 275px;
+  padding: 15px 25px;
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--accent-color);
+  transition: all .3s linear;
+}
+
+.account-register button:hover {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}

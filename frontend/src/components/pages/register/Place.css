@@ -4,7 +4,7 @@ ul {
 
 li{
   font-size: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .especifico {
@@ -13,4 +13,30 @@ li{
 
 input[type='file'] {
   display: none;
+}
+input{
+  border-radius: 5px;
+  color:black;
+  max-width: 45%;
+  }
+
+select{
+  color:black;
+  max-width: 45%;
+}
+option{
+  color:black;
+}
+textarea {
+  padding: 10px;
+  max-width:45%;
+  line-height: 1.5;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  color:black
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
 }

@@ -1,5 +1,11 @@
+
+.login {
+  width: 440px;
+}
+
 .form {
   width: 295px;
+  height: 100%;
 }
 
 .form div {
