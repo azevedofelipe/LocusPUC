@@ -2,10 +2,12 @@ from django.shortcuts import render
 from rest_framework import generics,permissions
 from rest_framework.response import Response
 from knox.models import AuthToken
-from .serializers import UserSerializer, CadastroSerializer
+from .serializers import AlterarSenhaSerializer, AtualizerUserSerializer, UserSerializer, CadastroSerializer
 from knox.views import LoginView as KnoxLoginView
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from django.contrib.auth import login
+from rest_framework.permissions import IsAuthenticated
+from django.contrib.auth.models import User
 
 # API Cadastro
 class CadastroAPI(generics.GenericAPIView):
@@ -42,3 +44,16 @@ class UserAPI(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
+
+class AlterarSenhaView(generics.UpdateAPIView):
+
+    queryset = User.objects.all()
+    permission_classes = (IsAuthenticated,)
+    serializer_class = AlterarSenhaSerializer
+
+
+class AtualizarPerfilView(generics.UpdateAPIView):
+
+    queryset = User.objects.all()
+    permission_classes = (IsAuthenticated,)
+    serializer_class = AtualizerUserSerializer
