@@ -1,9 +1,9 @@
 @font-face {
-    font-family: RobotoMonoRegular;
+    font-family: 'RobotoMonoRegular';
     src: url('./assets/fonts/RobotoMono-Thin.ttf');
 }
 @font-face {
-    font-family: RobotoMonoBold;
+    font-family: 'RobotoMonoBold';
     src: url('./assets/fonts/RobotoMono-Bold.ttf');
 }
 
@@ -18,11 +18,16 @@ body {
 }
 
 * {
-  font-family: 'RoboMonoRegular';
+  font-family: 'Times New Roman', 'serif';
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
   color: var(--text-color);
 }
 
-
+@keyframes slide-fade {
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}

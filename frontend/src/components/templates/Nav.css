@@ -6,16 +6,19 @@
 
 .nav .brand {
   font-size: 35px;
+  font-family: 'RobotoMonoBold', 'serif';
 }
 
 .nav .categories {
   font-size: 20px;
+  font-family: 'RobotoMonoBold', 'serif';
 }
 
 .nav a {
   color: var(--text-color);
   text-decoration: underline 0.225em var(--accent-color-opacity);
   transition: text-decoration-color 300ms;
+  font-family: 'RobotoMonoBold', 'serif';
 }
 
 .nav a:hover {

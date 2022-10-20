@@ -52,18 +52,18 @@ export default class Event extends Component {
               <form action='http://127.0.0.1:8000/api/eventos/' method='post'>
                 <div className="form-group mt-4">
                   <label htmlFor="name">Nome do Evento</label>
-                  <input type="text" className="form-control" id="name" placeholder="Nome" 
-                  name='titulo' onChange={this.fillField} value={this.state.titulo} required/>
+                  <input type="text" className="form-control" id="name" placeholder="Nome"
+                    name='titulo' onChange={this.fillField} value={this.state.titulo} required />
                 </div>
                 <div className="form-group mt-4">
                   <label htmlFor="date">Data</label>
-                  <input type="datetime-local" className="form-control" id="date" placeholder="Selecionar" 
-                  name='data_hora' onChange={this.fillField} value={this.state.data_hora} required />
+                  <input type="datetime-local" className="form-control" id="date" placeholder="Selecionar"
+                    name='data_hora' onChange={this.fillField} value={this.state.data_hora} required />
                 </div>
                 <div className="form-group mt-4">
-                  <label htmlFor="image" className='input-image btn btn-success'>Foto do Local</label>
-                  <input type="file" className="form-control" id="image" placeholder="Imagem" 
-                  name='image' onChange={this.fillField} value={this.state.image} required />
+                  <label htmlFor="image" className='input-image'>Foto do Local</label>
+                  <input type="file" className="form-control" id="image" placeholder="Imagem"
+                    name='image' onChange={this.fillField} value={this.state.image} required />
                 </div>
                 <button type="submit" className="mt-4 mb-4">Registrar Evento</button>
               </form>

@@ -8,7 +8,7 @@ export default class Nav extends Component {
     return (
       <nav className="nav d-flex justify-content-between align-items-center py-2">
         <Link className='brand' to='/' >Locus PUC</Link>
-        <Link className="categories d-none d-md-block" to='/categorias'>Categorias</Link>
+        <Link className="categories d-none d-md-block" to='/categorias'>Buscar</Link>
         <Login />
       </nav>
     )

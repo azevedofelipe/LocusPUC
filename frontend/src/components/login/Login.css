@@ -1,17 +1,17 @@
 
 .login {
-  width: 440px;
+  width: 600px;
 }
 
-.form {
+.login .form {
   width: 295px;
   height: 100%;
 }
 
-.form div {
+.login .form div {
   height: 50%;
 }
 
-.form-items input {
+.login.form-items input {
   width: 110px;
 }

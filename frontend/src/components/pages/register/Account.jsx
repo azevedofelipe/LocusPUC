@@ -2,10 +2,14 @@ import './Account.css'
 import Main from '../../templates/Main'
 import imgCadastroConta from '../../../assets/imgs/cadastroConta.jpg'
 import { Component } from 'react'
+import Alert from '../../Alert'
 
 export default class Account extends Component {
 
   state = {
+    alert: false,
+    result: false,
+    error: '',
     username: '',
     email: '',
     password: '',
@@ -36,28 +40,28 @@ export default class Account extends Component {
     const validEmail = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/
 
     if (this.state.password !== this.state.confPassword) {
-      // Mostra mensagem de criação NAO SUCEDIDA que joao vai implementar
-      alert("Senhas não são iguais")
+      this.setState({ alert: true, result: false, error: 'Senhas não são iguais' })
       return
     }
     if (validEmail.test(this.state.email) === false) {
-      // Mostra mensagem de criação NAO SUCEDIDA que joao vai implementar
-      alert("Email inválido")
+      this.setState({ alert: true, result: false, error: 'Email inválido' })
       return
     }
-
+    this.setState({ alert: true, result: true, error: '' })
+    
     fetch(form.action, options)
       .then(resp => resp.json())
       .then(obj => {
         let message = '';
-        if ('username' in obj) 
+        if ('username' in obj)
           message += `Usuário: ${obj['username'].toString()}\n`
         if ('password' in obj)
           message += `Senha: ${obj['password'].toString()}\n`
         if (message !== '')
-          alert(message)
+          
+          this.setState({ alert: true, result: false, error: message })
         else {
-          // Mostra mensagem de criação SUCEDIDA que joao vai implementar
+          this.setState({ alert: true, result: true, error: '' })
         }
       })
       .catch(e => console.log(e))
@@ -98,6 +102,13 @@ export default class Account extends Component {
             <div className='img d-none d-md-block col-md-7 col-12'>
               <img className='img-thumbnail' src={imgCadastroConta} alt='Registro' />
             </div>
+            {this.state.alert ? <Alert 
+                                  result={this.state.result} 
+                                  error={this.state.error} 
+                                  resultSuccess='Conta criada com sucesso' 
+                                  resultError='Erro ao criar a conta'
+                                  message='Permitido fazer login'
+                                /> : false}
           </div>
         </div>
       </Main>

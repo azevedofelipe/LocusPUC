@@ -1,33 +1,50 @@
-ul {
+.register-place h1 {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slide-fade 2s 0.2s 1 normal ease forwards;
+}
+
+.register-place form {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slide-fade 2s 1.2s 1 normal ease forwards;
+}
+
+.register-place ul {
   list-style-type: none;
 }
 
-li{
+.register-place li{
   font-size: 20px;
   margin-bottom: 20px;
 }
 
-.especifico {
+.register-place .especifico {
   font-size: 20px;
 }
 
-input[type='file'] {
+.register-place input[type='file'] {
   display: none;
 }
-input{
+.register-place input{
   border-radius: 5px;
   color:black;
   max-width: 45%;
   }
 
-select{
+.register-place select{
   color:black;
   max-width: 45%;
 }
-option{
+
+.register-place .especifico{
+  width: 300px;
+}
+
+.register-placeoption{
   color:black;
 }
-textarea {
+.register-place textarea {
   padding: 10px;
   max-width:45%;
   line-height: 1.5;
@@ -36,7 +53,19 @@ textarea {
   color:black
 }
 
-label {
+.register-place label {
   display: block;
   margin-bottom: 10px;
+}
+
+.register-place img {
+  height: 100%;
+  width: 100%;
+  background-color: var(--accent-color);
+  border: none;
+}
+
+.register-place .imagePreview {
+  border: solid 3px var(--accent-color);
+  min-height: 100%;
 }
