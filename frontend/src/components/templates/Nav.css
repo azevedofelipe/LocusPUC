@@ -1,26 +1,28 @@
-.nav {
-  background: linear-gradient(to right, rgba(22, 34, 42, .9), rgba(58, 96, 115, .9));;
-  height: 70px;
+.navs {
+  background: linear-gradient(to right, rgba(22, 34, 42, .9), rgba(58, 96, 115, .9));
+}
+
+.navbar {
   padding: 0px 90px;
 }
 
-.nav .brand {
-  font-size: 35px;
+.nav-brand {
+  font-size: 30px;
   font-family: 'RobotoMonoBold', 'serif';
 }
 
-.nav .categories {
+.navbar .categories {
   font-size: 20px;
   font-family: 'RobotoMonoBold', 'serif';
 }
 
-.nav a {
+.navbar a {
   color: var(--text-color);
   text-decoration: underline 0.225em var(--accent-color-opacity);
   transition: text-decoration-color 300ms;
   font-family: 'RobotoMonoBold', 'serif';
 }
 
-.nav a:hover {
+.navbar a:hover {
   text-decoration-color: var(--accent-color);
 }

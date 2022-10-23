@@ -1,5 +1,3 @@
-import './Login.css'
-import { Link } from 'react-router-dom'
 import { Component } from 'react';
 import LoginContext from '../../services/loginContext'
 
@@ -37,7 +35,7 @@ export default class Login extends Component {
       method: form.method,
       body: new URLSearchParams(data)
     }
-    
+
     fetch(form.action, options)
       .then(resp => resp.json())
       .then(obj => {
@@ -52,34 +50,26 @@ export default class Login extends Component {
   render() {
     return (
       <div className='login'>
-        <div className="row">
-          <div className="userState col-4 d-flex align-items-center">
-            { !!this.context.userUid ? 
-              (`Bem Vindo, ${(this.context.userUid).substring(0, 60)}`) :
-              (<Link to='/recuperar'>Esqueci Minha Senha</Link>)
-            }
-          </div>
-          <div className="col-8 d-flex justify-content-end">
-            {
-              !!this.context.userUid ?
-                (<button onClick={this.setLogout} className='btn btn-lg btn-danger ml-auto'>Deslogar</button>) :
-                (<form action='http://127.0.0.1:8000/api/auth/login/' method='post' onSubmit={this.loginUser}>
-                  <div className="row">
-                    <div className='col-4'>
-                      <input name="username" type="text" className="form-control" placeholder="Usuário" required 
-                        onChange={this.fillField} value={this.state.username}/>
-                    </div>
-                    <div className="col-4">
-                      <input name="password" type="password" className="form-control" placeholder="Senha" required 
-                        onChange={this.fillField} value={this.state.password}/>
-                    </div>
-                    <div className="col-4">
-                      <button className="btn btn-lg btn-primary py-0 px-3 mb-2 w-100 h-100">Entrar</button>
-                    </div>
+        <div className="d-block d-xl-flex justify-content-xl-end">
+          {
+            !!this.context.userUid ?
+              (<button onClick={this.setLogout} className='btn btn-xl btn-danger ml-auto'>Deslogar</button>) :
+              (<form action='http://127.0.0.1:8000/api/auth/login/' method='post' onSubmit={this.loginUser}>
+                <div className="row">
+                  <div className='col-12 col-md-8 col-xl-4 mb-2 mb-xl-0'>
+                    <input name="username" type="text" className="form-control" placeholder="Usuário" required
+                      onChange={this.fillField} value={this.state.username} />
                   </div>
-                </form>)
-            }
-          </div>
+                  <div className="col-12 col-md-8 col-xl-4 mb-2 mb-xl-0">
+                    <input name="password" type="password" className="form-control" placeholder="Senha" required
+                      onChange={this.fillField} value={this.state.password} />
+                  </div>
+                  <div className="col-12 col-md-8 col-xl-4">
+                    <button className="btn btn-xl btn-primary py-0 px-3 mb-2 w-100 h-100">Entrar</button>
+                  </div>
+                </div>
+              </form>)
+          }
         </div>
       </div>
     )

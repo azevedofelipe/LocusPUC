@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 import LoginContext from '../services/loginContext'
 import { BrowserRouter } from 'react-router-dom'
 
