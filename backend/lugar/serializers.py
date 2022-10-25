@@ -5,25 +5,25 @@ from taggit.serializers import (TagListSerializerField,TaggitSerializer)
 # Serializer para modelo Lugar
 class LugarSerializer(TaggitSerializer, serializers.ModelSerializer):
     tags = TagListSerializerField()
-    autor = serializers.CharField(source='autor.username')
+    autor_nome = serializers.ReadOnlyField()
 
     class Meta:
         model = Lugar
-        fields = ('id','titulo','descricao','thumb','autor','tags', 'likes_count','dislikes_count')
+        fields = ('id','titulo','descricao','thumb','autor','autor_nome','tags', 'likes_count','dislikes_count')
 
 
 class LikeSerializer(serializers.ModelSerializer):
-    lugar = serializers.CharField(source='lugar.titulo')
-    user = serializers.CharField(source='user.username')
+    lugar_nome = serializers.ReadOnlyField()
+    user_nome = serializers.ReadOnlyField()
     
     class Meta:
         model = Like
-        fields = ('id','voto','lugar','user')
+        fields = ('id','voto','lugar','lugar_nome','user','user_nome')
 
 class ComentarioSerializer(serializers.ModelSerializer):
-    lugar = serializers.CharField(source='lugar.titulo')
-    autor = serializers.CharField(source='autor.username')
+    lugar_nome = serializers.ReadOnlyField()
+    autor_nome = serializers.ReadOnlyField()
 
     class Meta:
         model = Comentario
-        fields = ('id','lugar','autor','texto')
+        fields = ('id','lugar','lugar_nome','autor','autor_nome','texto')

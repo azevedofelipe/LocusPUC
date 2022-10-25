@@ -11,3 +11,15 @@ class Evento(models.Model):
 
     def __str__(self):
         return self.titulo
+
+    @property
+    def autor_nome(self):
+        return self.autor.username
+    
+    @property
+    def local_titulo(self):
+        return self.local.titulo
+
+    @property
+    def local_descricao(self):
+        return self.local.descricao

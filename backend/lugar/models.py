@@ -21,6 +21,10 @@ class Lugar(models.Model):
     def dislikes_count(self):
         return self.likes.filter(voto=-1).count()
 
+    @property
+    def autor_nome(self):
+        return self.autor.username
+
 
 class Comentario(models.Model):
     lugar = models.ForeignKey(Lugar,on_delete=models.CASCADE)
@@ -29,6 +33,14 @@ class Comentario(models.Model):
 
     def __str__(self):
         return self.autor.username + " - " + self.lugar.titulo
+
+    @property
+    def lugar_nome(self):
+        return self.lugar.titulo
+
+    @property
+    def autor_nome(self):
+        return self.autor.username
 
 # Tabela de likes de lugar
 class Like(models.Model):
@@ -49,3 +61,10 @@ class Like(models.Model):
 
     def __str__(self):
         return self.user.username + ' - ' + self.lugar.titulo
+
+    @property
+    def lugar_nome(self):
+        return self.lugar.titulo
+    @property
+    def user_nome(self):
+        return self.user.username
