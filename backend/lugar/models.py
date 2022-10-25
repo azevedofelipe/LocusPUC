@@ -27,6 +27,9 @@ class Comentario(models.Model):
     autor = models.ForeignKey(User,on_delete=models.CASCADE)
     texto = models.TextField()
 
+    def __str__(self):
+        return self.autor.username + " - " + self.lugar.titulo
+
 # Tabela de likes de lugar
 class Like(models.Model):
     TIPO_LIKE = (
