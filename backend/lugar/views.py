@@ -4,11 +4,12 @@ from rest_framework import generics
 from .serializers import ComentarioSerializer, LugarSerializer, LikeSerializer
 from django_filters import rest_framework as filters
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from backend.permissions import isOwner
 
 
 # API para listar todos os lugares e criar lugares [C]RUD
 class LugarList(generics.ListCreateAPIView):
-    permission_classes = (IsAuthenticatedOrReadOnly,)               # So usuario autenticado pode criar lugar novo
+    permission_classes = [IsAuthenticatedOrReadOnly,]               # So usuario autenticado pode criar lugar novo
 
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_fields = {
@@ -20,7 +21,7 @@ class LugarList(generics.ListCreateAPIView):
 
 # API para update, delete e detalhes de lugares C[RUD]
 class LugarDetalhes(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    permission_classes = [isOwner,]
 
     serializer_class = LugarSerializer
     queryset = Lugar.objects.all()
@@ -36,7 +37,7 @@ class LikeCriar(generics.ListCreateAPIView):
 
 # API para update,deletar like
 class LikeDetalhes(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    permission_classes = (isOwner,)
     
     serializer_class = LikeSerializer
     queryset = Like.objects.all()
@@ -48,7 +49,7 @@ class ComentarioCriar(generics.ListCreateAPIView):
     queryset = Comentario.objects.all()
 
 class ComentarioDetalhes(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    permission_classes = (isOwner,)
 
     serializer_class = ComentarioSerializer
     queryset = Comentario.objects.all()
