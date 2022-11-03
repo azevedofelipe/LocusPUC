@@ -9,7 +9,7 @@ class LugarSerializer(TaggitSerializer, serializers.ModelSerializer):
 
     class Meta:
         model = Lugar
-        fields = ('id','titulo','descricao','thumb','autor','autor_nome','tags', 'likes_count','dislikes_count')
+        fields = ('id','titulo','descricao','thumb','alt_text','autor','autor_nome','tags', 'likes_count','dislikes_count')
 
 
 class LikeSerializer(serializers.ModelSerializer):
