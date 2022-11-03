@@ -14,7 +14,8 @@ class EventoList(generics.ListCreateAPIView):
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_fields = {
         'local__titulo' : ['contains'],
-        'titulo' : ['contains']
+        'titulo' : ['contains'],
+        'data_hora' : ['gte','lte']
     }
 
     serializer_class = EventoSerializer
