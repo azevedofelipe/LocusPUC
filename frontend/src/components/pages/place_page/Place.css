@@ -1,0 +1,33 @@
+.home {
+    height: 100%;
+  }
+  
+  .home .img {
+    height: 80%;
+  }
+  
+  .home img {
+    height: 100%;
+    width: 100%;
+    background-color: var(--accent-color);
+    border: none;
+  }
+  
+  .skip_nav {
+    background-color: red;
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+  }
+  
+   
+  .skip_nav a:focus
+  {
+    background-color: red;
+    position:static;
+    width:auto;
+    height:auto;
+  }

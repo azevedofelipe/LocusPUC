@@ -48,7 +48,7 @@ export default class Place extends Component {
         'Authorization': `Token ${this.context.userKey}` ,
         'Content-Type': 'application/json'
       }),
-      body: JSON.stringify({ user: this.context.userId, lugar: this.props.placeId, voto: vote })
+      body: JSON.stringify({ autor: this.context.userId, titulo: this.state.title, descricao: this.state.description, tags: ['Comer']})
     }
     fetch('http://127.0.0.1:8000/api/lugar/likes/', optionsPost)
       .then(resp => resp.json())
