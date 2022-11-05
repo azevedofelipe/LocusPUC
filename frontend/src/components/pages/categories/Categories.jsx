@@ -73,23 +73,25 @@ export default class Categories extends Component {
           </h1>
           <hr />
           <div className='d-flex align-items-center mb-4'>
-            <Link to="/registrarLugar" className="btn btn-secondary" role="button">Criar Lugar</Link>
-            <Link to="/registrarEvento" className="btn btn-secondary ml-5" role="button">Criar Evento</Link>
+            <Link to="/registrarLugar" className="btn btn-secondary mx-3" role="button">Criar Lugar</Link>
+            <Link to="/registrarEvento" className="btn btn-secondary" role="button">Criar Evento</Link>
             <form className='search form m-0' onSubmit={this.searchPlace}>
-              <div className="form-items form-group d-flex justify-content-between mx-5">
-                <div>
-                  <input onClick={this.fillField} value='Comer' type='checkbox' id='eat' name='eat' />
-                  <label htmlFor="eat">Comer</label>
-                </div>
-                <div>
-                  <input onClick={this.fillField} value='Estudar' type='checkbox' id='study' name='study' />
-                  <label htmlFor="study">Estudar</label>
-                </div>
-                <div>
-                  <input onClick={this.fillField} value='Socializar' type="checkbox" id='socialize' name='socialize' />
-                  <label htmlFor="socialize">Socializar</label>
-                </div>
-                <input type="text" name='word' onChange={this.fillField} value={this.state.word} className="form-control input-sm mx-2" id="place" placeholder="Nome do Lugar" />
+              <div className="form-items form-group align-items-center d-flex justify-content-between mx-5">
+                <ul className='d-flex mt-3'>
+                <li className="d-flex form-check form-check-inline">
+                    <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value='Socializar'/>
+                    <label className="mx-2 form-check-label" htmlFor="inlineCheckbox1">Socializar</label>
+                  </li>
+                  <li className="d-flex form-check form-check-inline">
+                    <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value='Comer'/>
+                    <label className="mx-2 form-check-label" htmlFor="inlineCheckbox2">Comer</label>
+                  </li>
+                  <li className="d-flex form-check form-check-inline">
+                    <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value='Estudar'/>
+                    <label className="mx-2 form-check-label" htmlFor="inlineCheckbox3">Estudar</label>
+                  </li>
+                </ul>
+                <input type="text" name='word' onChange={this.fillField} value={this.state.word} className="form-control input-sm mx-2 searchName" id="place" placeholder="Nome do Lugar" />
                 <button type="submit" className="btn btn-primary py-0 px-2 ml-2">Pesquisar</button>
               </div>
             </form>
