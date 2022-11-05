@@ -9,12 +9,14 @@ import { Component } from 'react'
 
 export default class App extends Component {
 
-  setLogged = (userUid) => {
-    this.setState({ userUid })
+  setLogged = (userId, userKey , username) => {
+    this.setState({ userId, userKey, username })
   }
 
   state = {
-    userUid: '',
+    userId: -1,
+    userKey: '',
+    username: '',
     setLogged: this.setLogged
   }
 
@@ -23,8 +25,9 @@ export default class App extends Component {
       <BrowserRouter>
         <LoginContext.Provider value={this.state}>
           <main>
+            <a className='skip_nav' href='#maincontent'>Pular para conteudo principal</a>
             <Nav />
-            <Paths />
+            <Paths id='maincontent' />
           </main>
         </LoginContext.Provider>
       </BrowserRouter>

@@ -27,6 +27,16 @@
     width: 100%;
     border-radius: 10px;
 }
+
 .div {
   font-family: 'RobotoMono-Thin';
+}
+
+.icon.d-flex {
+    gap: 15px;
+    cursor: pointer;
+}
+
+.valuationFontSize {
+    font-size: 25px;
 }

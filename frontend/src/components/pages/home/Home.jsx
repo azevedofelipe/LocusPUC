@@ -10,8 +10,8 @@ export default class Home extends Component {
       <Main>
         <div className='home row d-flex align-items-center'>
           <Header />
-          <div className='d-none d-md-block img col-md-6 offset-md-1 gl-5'>
-            <img className='img-thumbnail' src={imgInicio} alt='Início' />
+          <div className='d-none d-sm-block img col-12 col-xl-6 offset-xl-1 gl-5'>
+            <img className='img-thumbnail' src={imgInicio} alt='Fachada do edifício Cardeal Leme' />
           </div>
         </div>
       </Main>
