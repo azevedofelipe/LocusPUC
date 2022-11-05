@@ -22,8 +22,8 @@ export default class Nav extends Component {
                 <Link className="categories" to='/categorias' aria-label='Ir para tela de busca'>Buscar</Link>
               </li>
               <li className="nav-item mb-3 mb-xl-0">
-                {!!this.context.userUid ?
-                  (`Bem Vindo, ${(this.context.userUid).substring(0, 30)}`) :
+                {!!this.context.username ?
+                  (`Bem Vindo, ${(this.context.username).substring(0, 30)}`) :
                   (<Link to='/recuperar'>Esqueci Minha Senha</Link>)
                 }
               </li>

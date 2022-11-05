@@ -10,6 +10,11 @@ library.add(faThumbsDown)
 export default class PlaceBox extends Component {
   static contextType = LoginContext
 
+  state = {
+    likes_count: this.props.likes_count,
+    dislikes_count: this.props.dislikes_count
+  }
+
   constructor(props) {
     super(props)
     this.setValuation = this.setValuation.bind(this)
@@ -18,26 +23,39 @@ export default class PlaceBox extends Component {
   setValuation(e, vote) {
     if (!!this.context.userKey === false)
       return
-    console.log('context', this.context)
 
-    const optionsPost = {
-      method: 'post',
+    const options = {
       headers: new Headers({ 
-        'Authorization': `Token ${this.context.userKey}` ,
-        'Content-Type': 'application/json'
-      }),
-      body: JSON.stringify({ user: this.context.userId, lugar: this.props.placeId, voto: vote })
+        'Authorization': `Token ${this.context.userKey}`, 
+        'Content-Type': 'application/json' })
     }
-    fetch('http://127.0.0.1:8000/api/lugar/likes/', optionsPost)
+    fetch(`http://127.0.0.1:8000/api/lugar/likes/`, options)
       .then(resp => resp.json())
       .then(obj => {
-        console.log('post', obj)
-      })
-      .catch(e => {
-        fetch(`http://127.0.0.1:8000/api/lugar/likes/`)
+        const userLike = obj.filter((value, idx) => {
+          return value['lugar'] === this.props.placeId && value['user_nome'] === this.context.username
+        })
+        if (userLike.length === 0) {
+          const optionsPost = { method: 'post', ...options }
+          fetch('http://127.0.0.1:8000/api/lugar/likes/', { ...optionsPost, body: JSON.stringify({ autor: this.context.userId, lugar: this.props.placeId, voto: vote }) })
+          console.log('post')
+        }
+        else {
+          const optionsPut = { method: 'put', ...options }
+          if (userLike[0]['voto'] === vote) {
+            console.log(userLike[0]['voto'], vote)
+            fetch(`http://127.0.0.1:8000/api/lugar/like/${userLike[0]['id']}`, { ...optionsPut, body: JSON.stringify({ autor: this.context.userId, lugar: this.props.placeId, voto: 0 }) })
+          }
+          else {
+            console.log(userLike[0]['voto'], vote)
+            fetch(`http://127.0.0.1:8000/api/lugar/like/${userLike[0]['id']}`, { ...optionsPut, body: JSON.stringify({ autor: this.context.userId, lugar: this.props.placeId, voto: vote }) })
+          }
+        }
+        fetch('http://127.0.0.1:8000/api/lugar/')
           .then(resp => resp.json())
           .then(obj => {
-            console.log('put', obj)
+            const place = obj.filter((value, idx) => value['id'] === this.props.placeId)
+            this.setState({ likes_count: place[0]['likes_count'] , dislikes_count: place[0]['dislikes_count'] })
           })
       })
   }
@@ -63,10 +81,10 @@ export default class PlaceBox extends Component {
           </div >
           <div className="d-flex justify-content-between box-content">
             <div className="icon d-flex justify-content-between align-items-center" onClick={e => this.setValuation(e, 1)}>
-              <FontAwesomeIcon icon={faThumbsUp} size='2x'/><span className="valuationFontSize">{this.props.likes_count}</span>
+              <FontAwesomeIcon icon={faThumbsUp} size='2x'/><span className="valuationFontSize">{this.state.likes_count}</span>
             </div>
             <div className="icon d-flex justify-content-between align-items-center" onClick={e => this.setValuation(e, -1)}>
-              <FontAwesomeIcon icon={faThumbsDown} size='2x'/><span className="valuationFontSize">{this.props.dislikes_count}</span>
+              <FontAwesomeIcon icon={faThumbsDown} size='2x'/><span className="valuationFontSize">{this.state.dislikes_count}</span>
             </div>
             <div>
               <button>Comentarios</button>

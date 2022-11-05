@@ -31,7 +31,7 @@ class LikeCriar(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     filter_backends = (filters.DjangoFilterBackend,)
-    filterset_fields = ('user','lugar','voto')
+    filterset_fields = ('autor','lugar','voto')
     serializer_class = LikeSerializer
     queryset = Like.objects.all()
 
