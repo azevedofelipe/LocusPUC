@@ -58,7 +58,7 @@ export default class Categories extends Component {
     return this.state.places.map(place => {
       return (
         <PlaceBox key={place.id}
-          titulo={place.titulo} descricao={place.descricao} autor={place.autor} thumb={place.thumb}
+          placeId={place.id} titulo={place.titulo} descricao={place.descricao} autor={place.autor} thumb={place.thumb}
           tags={place.tags} likes_count={place.likes_count} dislikes_count={place.dislikes_count} />
       )
     })

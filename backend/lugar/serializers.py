@@ -9,7 +9,7 @@ class LugarSerializer(TaggitSerializer, serializers.ModelSerializer):
 
     class Meta:
         model = Lugar
-        fields = ('id','titulo','descricao','thumb','autor','autor_nome','tags', 'likes_count','dislikes_count')
+        fields = ('id','titulo','descricao','thumb','alt_text','autor','autor_nome','tags', 'likes_count','dislikes_count')
 
 
 class LikeSerializer(serializers.ModelSerializer):
@@ -18,7 +18,7 @@ class LikeSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Like
-        fields = ('id','voto','lugar','lugar_nome','user','user_nome')
+        fields = ('id','voto','lugar','lugar_nome','autor','user_nome')
 
 class ComentarioSerializer(serializers.ModelSerializer):
     lugar_nome = serializers.ReadOnlyField()

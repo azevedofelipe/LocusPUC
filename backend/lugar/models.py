@@ -7,6 +7,7 @@ class Lugar(models.Model):
     titulo = models.CharField(max_length=100)
     descricao = models.TextField()
     thumb = models.ImageField(default='default.png',blank=True)
+    alt_text = models.TextField(blank=True)
     autor = models.ForeignKey(User,on_delete=models.CASCADE, default=None)
     
     tags = TaggableManager()                                    # Para criar tags no API de lugar tem que criar em forma de lista e.g ["Estudar","Comer"]
@@ -51,20 +52,20 @@ class Like(models.Model):
     )
 
     lugar = models.ForeignKey(Lugar,on_delete=models.CASCADE, related_name='likes')       # Usa related_name para filtrar por likes no modelo de lugar (likes_count, dislikes_count)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    autor = models.ForeignKey(User,on_delete=models.CASCADE)
     voto = models.IntegerField(default=0,choices=TIPO_LIKE)
 
     # Um usuario so pode deixar um voto por lugar
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=['user_id','lugar_id'],name='unique_user')]
+            models.UniqueConstraint(fields=['autor_id','lugar_id'],name='unique_user')]
 
     def __str__(self):
-        return self.user.username + ' - ' + self.lugar.titulo
+        return self.autor.username + ' - ' + self.lugar.titulo
 
     @property
     def lugar_nome(self):
         return self.lugar.titulo
     @property
     def user_nome(self):
-        return self.user.username
+        return self.autor.username

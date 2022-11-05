@@ -24,7 +24,7 @@ export default class Login extends Component {
 
   setLogout(e) {
     e.preventDefault()
-    this.context.setLogged('')
+    this.context.setLogged(-1, '', '')
   }
 
   async loginUser(e) {
@@ -41,8 +41,11 @@ export default class Login extends Component {
       .then(obj => {
         if ('non_field_errors' in obj)
           alert(obj['non_field_errors'])
-        else
-          this.context.setLogged(obj['token'])
+        else {
+          fetch('http://127.0.0.1:8000/api/auth/user/', { headers: new Headers({ 'Authorization': `Token ${obj['token']}`}) })
+            .then(resp => resp.json())
+            .then(objId => this.context.setLogged(objId['id'], obj['token'], this.state.username))
+        }
       })
       .catch(e => console.log(e))
   }
@@ -52,7 +55,7 @@ export default class Login extends Component {
       <div className='login'>
         <div className="d-block d-xl-flex justify-content-xl-end">
           {
-            !!this.context.userUid ?
+            !!this.context.userKey ?
               (<button onClick={this.setLogout} className='btn btn-xl btn-danger ml-auto'>Deslogar</button>) :
               (<form action='http://127.0.0.1:8000/api/auth/login/' method='post' onSubmit={this.loginUser}>
                 <div className="row">
