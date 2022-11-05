@@ -38,25 +38,22 @@ export default class PlaceBox extends Component {
         if (userLike.length === 0) {
           const optionsPost = { method: 'post', ...options }
           fetch('http://127.0.0.1:8000/api/lugar/likes/', { ...optionsPost, body: JSON.stringify({ autor: this.context.userId, lugar: this.props.placeId, voto: vote }) })
-          console.log('post')
+            .then(resp => resp.json())
+            .then(obj => this.setState({ likes_count: obj['lugar_likes'], dislikes_count: obj['lugar_dislikes']}))
         }
         else {
           const optionsPut = { method: 'put', ...options }
           if (userLike[0]['voto'] === vote) {
-            console.log(userLike[0]['voto'], vote)
             fetch(`http://127.0.0.1:8000/api/lugar/like/${userLike[0]['id']}`, { ...optionsPut, body: JSON.stringify({ autor: this.context.userId, lugar: this.props.placeId, voto: 0 }) })
+              .then(resp => resp.json())
+              .then(obj => this.setState({ likes_count: obj['lugar_likes'], dislikes_count: obj['lugar_dislikes']}))
           }
           else {
-            console.log(userLike[0]['voto'], vote)
             fetch(`http://127.0.0.1:8000/api/lugar/like/${userLike[0]['id']}`, { ...optionsPut, body: JSON.stringify({ autor: this.context.userId, lugar: this.props.placeId, voto: vote }) })
+              .then(resp => resp.json())
+              .then(obj => this.setState({ likes_count: obj['lugar_likes'], dislikes_count: obj['lugar_dislikes']}))
           }
         }
-        fetch('http://127.0.0.1:8000/api/lugar/')
-          .then(resp => resp.json())
-          .then(obj => {
-            const place = obj.filter((value, idx) => value['id'] === this.props.placeId)
-            this.setState({ likes_count: place[0]['likes_count'] , dislikes_count: place[0]['dislikes_count'] })
-          })
       })
   }
 
