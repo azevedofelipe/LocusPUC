@@ -69,3 +69,11 @@ class Like(models.Model):
     @property
     def user_nome(self):
         return self.autor.username
+
+    @property
+    def lugar_likes(self):
+        return self.lugar.likes_count
+
+    @property
+    def lugar_dislikes(self):
+        return self.lugar.dislikes_count

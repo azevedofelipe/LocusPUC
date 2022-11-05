@@ -18,7 +18,7 @@ class LikeSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Like
-        fields = ('id','voto','lugar','lugar_nome','autor','user_nome')
+        fields = ('id','voto','lugar','lugar_nome','autor','user_nome', 'lugar_likes','lugar_dislikes')
 
 class ComentarioSerializer(serializers.ModelSerializer):
     lugar_nome = serializers.ReadOnlyField()
