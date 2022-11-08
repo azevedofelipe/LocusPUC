@@ -1,19 +1,26 @@
-.home {
-    height: 100%;
-  }
-  
-  .home .img {
-    height: 80%;
-  }
-  
-  .home img {
-    height: 100%;
-    width: 100%;
+.lugar h1 {
+  color: var(--accent-color);
+  font-size: 50px;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slide-fade 0.7s 0.2s 1 normal ease forwards;
+}
+
+.lugar > div {
+  margin-top: 50px;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slide-fade 0.7s 0.5s 1 normal ease forwards;
+}
+
+.lugar .place-thumbnail {
+    height: 40%;
+    width: 40%;
     background-color: var(--accent-color);
     border: none;
-  }
+}
   
-  .skip_nav {
+.skip_nav {
     background-color: red;
     position:absolute;
     left:-10000px;
@@ -21,13 +28,26 @@
     width:1px;
     height:1px;
     overflow:hidden;
-  }
+}
+
+.placeholder-box {
+    background-color:darkgray;
+    width: auto;
+    height: auto;
+
+}
+
+.placeholder-text {
+    color:black;
+}
   
    
   .skip_nav a:focus
   {
     background-color: red;
     position:static;
-    width:auto;
-    height:auto;
+    left:20px;
+    top:10px;
+    width:100px;
+    height:100px;
   }

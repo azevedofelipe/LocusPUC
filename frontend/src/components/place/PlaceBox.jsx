@@ -2,6 +2,7 @@ import { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faThumbsUp, faThumbsDown } from "@fortawesome/free-regular-svg-icons";
+import { Link } from 'react-router-dom'
 import LoginContext from '../../context/loginContext'
 import './PlaceBox.css'
 
@@ -66,6 +67,7 @@ export default class PlaceBox extends Component {
         <div className="col-6 px-3 py-2 d-flex flex-column justify-content-between">
           <div className="title">
             {this.props.titulo}
+            
           </div>
           <div className='author'>
             Autor: {this.props.autor}
@@ -84,7 +86,7 @@ export default class PlaceBox extends Component {
               <FontAwesomeIcon icon={faThumbsDown} size='2x'/><span className="valuationFontSize">{this.state.dislikes_count}</span>
             </div>
             <div>
-              <button>Comentarios</button>
+              <Link to="/lugar" className="btn btn-secondary mx-3" role="button">Comentarios</Link>
             </div>
           </div>
         </div>
