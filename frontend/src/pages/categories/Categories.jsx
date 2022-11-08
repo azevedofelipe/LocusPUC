@@ -2,7 +2,7 @@ import './Categories.css'
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Main from '../../templates/Main'
-import PlaceBox from '../../place/PlaceBox'
+import PlaceBox from '../../components/place/PlaceBox'
 
 export default class Categories extends Component {
 

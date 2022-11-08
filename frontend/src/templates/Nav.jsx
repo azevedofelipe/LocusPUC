@@ -1,8 +1,8 @@
 import './Nav.css'
 import { Link } from 'react-router-dom'
-import Login from '../login/Login'
+import Login from '../components/login/Login'
 import { Component } from 'react'
-import LoginContext from '../../services/loginContext'
+import LoginContext from '../context/loginContext'
 
 export default class Nav extends Component {
   static contextType = LoginContext

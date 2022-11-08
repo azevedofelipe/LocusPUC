@@ -1,8 +1,8 @@
 import './Account.css'
 import Main from '../../templates/Main'
-import imgCadastroConta from '../../../assets/imgs/cadastroConta.jpg'
+import imgCadastroConta from '../../assets/imgs/cadastroConta.jpg'
 import { Component } from 'react'
-import Alert from '../../Alert'
+import Alert from '../../components/Alert'
 
 export default class Account extends Component {
 

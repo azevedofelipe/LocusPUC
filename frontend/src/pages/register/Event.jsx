@@ -1,6 +1,6 @@
 import './Event.css'
 import Main from '../../templates/Main'
-import imgCadastroEvento from '../../../assets/imgs/cadastroEvento.jpg'
+import imgCadastroEvento from '../../assets/imgs/cadastroEvento.jpg'
 import { Component } from 'react'
 
 export default class Event extends Component {

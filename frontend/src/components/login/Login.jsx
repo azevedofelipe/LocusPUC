@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import LoginContext from '../../services/loginContext'
+import LoginContext from '../../context/loginContext'
 
 export default class Login extends Component {
   static contextType = LoginContext

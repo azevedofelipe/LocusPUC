@@ -1,7 +1,7 @@
 import './Place.css'
 import { Component } from 'react'
 import Main from '../../templates/Main'
-import LoginContext from '../../../services/loginContext'
+import LoginContext from '../../context/loginContext'
 
 
 export default class Place extends Component {

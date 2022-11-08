@@ -2,7 +2,7 @@ import { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faThumbsUp, faThumbsDown } from "@fortawesome/free-regular-svg-icons";
-import LoginContext from '../../services/loginContext'
+import LoginContext from '../../context/loginContext'
 import './PlaceBox.css'
 
 library.add(faThumbsUp)

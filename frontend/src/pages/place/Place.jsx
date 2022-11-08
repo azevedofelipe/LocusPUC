@@ -1,6 +1,6 @@
-import './Home.css'
+import './Place.css'
 import Main from '../../templates/Main'
-import imgInicio from '../../../assets/imgs/inicio.jpg'
+import imgInicio from '../../assets/imgs/inicio.jpg'
 import Header from '../../templates/Header'
 import { Component } from 'react'
 

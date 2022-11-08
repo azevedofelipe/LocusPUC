@@ -1,9 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
-import LoginContext from '../services/loginContext'
+import LoginContext from '../context/loginContext'
 import { BrowserRouter } from 'react-router-dom'
 
-import Nav from '../components/templates/Nav'
+import Nav from '../templates/Nav'
 import Paths from './Paths'
 import { Component } from 'react'
 

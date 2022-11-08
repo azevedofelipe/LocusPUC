@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import Main from './templates/Main'
+import Main from '../templates/Main'
 
 export default class Alert extends Component {
 
