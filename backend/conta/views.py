@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics,permissions
+from rest_framework import generics,permissions,status
 from rest_framework.response import Response
 from knox.models import AuthToken
 from .serializers import AlterarSenhaSerializer, AtualizerUserSerializer, UserSerializer, CadastroSerializer
@@ -48,12 +48,16 @@ class UserAPI(generics.RetrieveAPIView):
 # GET User Email API, input de email output de user com mesmo email
 class UserEmailAPI(generics.ListAPIView):
 
-    def get_queryset(self):
+    def post(self,request,*args, **kwargs):
         email = self.kwargs.get('email')
-        if email is not None:
-            return User.objects.filter(email=email)
+        if User.objects.filter(email=email).exists():
+            user = User.objects.get(email=email)
+            return Response({
+            "token" : AuthToken.objects.create(user)[1]                                                 # Cria JWT para session do usuario
+            })
         else:
-            pass
+            content = {"Erro": "Email nao encontrado"}
+            return Response(content,status=status.HTTP_400_BAD_REQUEST)
 
     serializer_class = UserSerializer
 
