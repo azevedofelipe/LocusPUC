@@ -7,6 +7,7 @@ import Categories from '../pages/categories/Categories'
 import Recover from '../pages/recoverPassword/Recover'
 import Home from '../pages/home/Home'
 import { Component } from "react"
+import PlacePage from "../pages/place/Place"
 
 export default class Paths extends Component {
   render() {
@@ -18,6 +19,7 @@ export default class Paths extends Component {
         <Route path="/registrarLugar" element={<Place />} />
         <Route path="/categorias" element={<Categories />} />
         <Route path="/recuperar" element={<Recover />} />
+        <Route path="/lugar" element={<PlacePage />} />
         <Route path="*" element={<Home />} />
       </Routes>
     )
