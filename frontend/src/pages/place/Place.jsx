@@ -1,30 +1,61 @@
 import './Place.css'
 import Main from '../../templates/Main'
-import imgInicio from '../../assets/imgs/inicio.jpg'
-
 import { Component } from 'react'
 
 export default class PlacePage extends Component {
+  state = {
+    place: {
+      id: -1,
+      titulo: '',
+      descricao: '',
+      thumb: '',
+      alt_text: '',
+      tags: []
+    }
+  }
+  
+  componentDidMount() {
+    const currentUrl = window.location.pathname
+    let id
+    if (currentUrl.charAt(currentUrl.length-1) !== '/')
+      id = currentUrl.charAt(currentUrl.length-1)
+    else
+      id = currentUrl.charAt(currentUrl.length-2)
+    
+    fetch(`http://127.0.0.1:8000/api/lugar/`)
+      .then(resp => resp.json())
+      .then(places => {
+        const placeArr = places.filter((value, idx) => {
+          return value['id'] === parseInt(id)
+        })
+        const place = placeArr[0]
+        this.setState({ place })
+      })
+  }
+  
+
   render() {
     return (
       <Main>
-        <div className='lugar row d-flex align-items-center'>
-          <h1>Biblioteca do Leme</h1>
+        <div className='lugar'>
+          <h1>{this.state.place.titulo}</h1>
           <hr />
-          <div className='column d-flex align-items-center justify-content-around'>
-            <img className='place-thumbnail img-thumbnail' src={imgInicio} alt='Fachada do edifício Cardeal Leme' />
-            <div className='row d-flex justify-content-between'>
-              <div id='description' className='row d-flex align-items-center'>
+          <div className='row'>
+            <div className='col-5'>
+              <img className='place-thumbnail img-thumbnail' src={this.state.place.thumb} alt={this.state.place.alt} />
+            </div>
+            <div className='col-6 offset-1'>
+              <div id='description'>
                 <h2>Descrição</h2>
-                <p>Local no Predio Cardial Leme, no sexto andar onde alunos se reunem para estudar</p>
+                <p>{this.state.place.descricao}</p>
               </div>
-              <div id='tags' className='row d-flex align-items-center'>
+              <div id='tags'>
                 <h2>Tags</h2>
-                <p>Estudar</p>
+                <p>{this.state.place.tags.join(' ')}</p>
               </div>
             </div>
           </div>
-          <div className='column d-flex align-items-center justify-content-around '>
+          <div className='row'>
             <div id='comments' className='row d-flex align-items-center'>
               <h2>Comentários</h2>
               <div className='flex-column d-flex align-items-stretch'>

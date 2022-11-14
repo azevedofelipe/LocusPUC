@@ -20,7 +20,6 @@ export default class Categories extends Component {
     this.searchPlace = this.searchPlace.bind(this)
   }
 
-  // Funciona no vscode
   componentDidMount() {
     fetch('http://127.0.0.1:8000/api/lugar/')
       .then(resp => resp.json())

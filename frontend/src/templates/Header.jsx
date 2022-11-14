@@ -23,7 +23,7 @@ export default class Nav extends Component {
             </Link>
           </div>
           <div className='button mt-5 mt-md-0 mt-xl-5 mb-4 col-12 col-md-6 col-xl-12 gx-3'>
-            <Link className='button' to="/categorias" aria-label='Ir para tela de busca'>
+            <Link className='button' to="/lugares" aria-label='Ir para tela de busca'>
               Buscar Lugares
             </Link>
           </div>

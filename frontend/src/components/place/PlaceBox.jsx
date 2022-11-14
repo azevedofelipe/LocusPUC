@@ -86,8 +86,8 @@ export default class PlaceBox extends Component {
               <FontAwesomeIcon icon={faThumbsDown} size='2x'/><span className="valuationFontSize">{this.state.dislikes_count}</span>
             </div>
             <div>
-              <Link to="/lugar" className="btn btn-secondary mx-3" role="button">
-                Comentarios
+              <Link to={`/lugares/${this.props.placeId}`} className="btn btn-secondary mx-3" role="button">
+                Detalhes
               </Link>
             </div>
           </div>
