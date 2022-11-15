@@ -10,6 +10,14 @@
     font-size: 40px;
 }
 
+.like:hover {
+    color: green;
+}
+
+.dislike:hover {
+    color: red;
+}
+
 .author {
     font-size: 30px;
 }

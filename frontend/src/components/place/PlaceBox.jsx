@@ -80,10 +80,10 @@ export default class PlaceBox extends Component {
           </div >
           <div className="d-flex justify-content-between box-content">
             <div className="icon d-flex justify-content-between align-items-center" onClick={e => this.setValuation(e, 1)}>
-              <FontAwesomeIcon icon={faThumbsUp} size='2x'/><span className="valuationFontSize">{this.state.likes_count}</span>
+              <FontAwesomeIcon className='like' icon={faThumbsUp} size='2x'/><span className="valuationFontSize">{this.state.likes_count}</span>
             </div>
             <div className="icon d-flex justify-content-between align-items-center" onClick={e => this.setValuation(e, -1)}>
-              <FontAwesomeIcon icon={faThumbsDown} size='2x'/><span className="valuationFontSize">{this.state.dislikes_count}</span>
+              <FontAwesomeIcon className='dislike' icon={faThumbsDown} size='2x'/><span className="valuationFontSize">{this.state.dislikes_count}</span>
             </div>
             <div>
               <Link to={`/lugares/${this.props.placeId}`} className="btn btn-secondary mx-3" role="button">

@@ -2,19 +2,20 @@ import './Event.css'
 import Main from '../../templates/Main'
 import imgCadastroEvento from '../../assets/imgs/cadastroEvento.jpg'
 import { Component } from 'react'
+import LoginContext from '../../context/loginContext'
 
 export default class Event extends Component {
-
+  static contextType = LoginContext
   state = {
     titulo: '',
     data_hora: '',
-    image: '',
+    id_lugar: '',
   }
 
   constructor(props) {
     super(props)
     this.fillField = this.fillField.bind(this)
-    this.registerPlace = this.registerPlace.bind(this)
+    this.registerEvent = this.registerEvent.bind(this)
   }
 
   fillField(e) {
@@ -23,22 +24,28 @@ export default class Event extends Component {
     this.setState(field)
   }
 
-  async registerPlace(e) {
+  registerEvent(e) {
     e.preventDefault()
-    const form = e.target
-    const data = new FormData(form)
-    data.append({ autor: 'anonimo' })
     const options = {
-      method: form.method,
-      body: new URLSearchParams(data)
+      method: 'post',
+      headers: new Headers (
+        {
+          'Content-Type': 'application/json',
+          'Authorization': `Token ${this.context.userKey}`
+        }
+      ),
+      body: JSON.stringify({autor: this.context.userId, local: this.state.id_lugar, data_hora: this.state.data_hora, titulo: this.state.titulo})
     }
-
-    fetch(form.action, options)
-      .then(resp => resp.json())
-      .then(obj => {
-        alert(JSON.stringify(obj))
+    fetch('http://127.0.0.1:8000/api/eventos',options)
+    .then(function (resp){return resp.json()})
+    .then(function (obj){
+      if ('titulo' in obj)
+        alert("Evento criado com sucesso!")
+      else if ('data_hora' in obj)
+        alert("Formato de data/hora inválido")
+      else
+        alert("Local não existe")
       })
-      .catch(e => console.log(e))
   }
 
   render() {
@@ -49,7 +56,7 @@ export default class Event extends Component {
             <div className='col-md-5 col'>
               <h1>Registre Novo Evento</h1>
               <hr />
-              <form action='http://127.0.0.1:8000/api/eventos/' method='post'>
+              <form onSubmit={this.registerEvent}>
                 <div className="form-group mt-4">
                   <label htmlFor="name">Nome do Evento</label>
                   <input type="text" className="form-control" id="name" placeholder="Nome"
@@ -61,9 +68,9 @@ export default class Event extends Component {
                     name='data_hora' onChange={this.fillField} value={this.state.data_hora} required />
                 </div>
                 <div className="form-group mt-4">
-                  <label htmlFor="image" className='input-image'>Foto do Local</label>
-                  <input type="file" className="form-control" id="image" placeholder="Imagem"
-                    name='image' onChange={this.fillField} value={this.state.image} required />
+                  <label htmlFor="placeID">Lugar</label>
+                  <input type="number" className="form-control" id="placeID" placeholder="ID do Lugar"
+                    name='id_lugar' onChange={this.fillField} value={this.state.id_lugar} required />
                 </div>
                 <button type="submit" className="mt-4 mb-4">Registrar Evento</button>
               </form>
