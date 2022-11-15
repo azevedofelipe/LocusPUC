@@ -19,7 +19,7 @@ export default class Nav extends Component {
           <div className="collapse navbar-collapse" id="navCollapse">
             <ul className="navbar-nav ms-xl-auto w-100 d-block d-xl-flex justify-content-xl-around align-items-xl-center">
               <li className="nav-item mb-2 mb-xl-0">
-                <Link className="categories" to='/categorias' aria-label='Ir para tela de busca'>Buscar</Link>
+                <Link className="categories" to='/busca' aria-label='Ir para tela de busca'>Buscar</Link>
               </li>
               <li className="nav-item mb-3 mb-xl-0">
                 {!!this.context.username ?

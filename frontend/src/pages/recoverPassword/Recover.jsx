@@ -71,7 +71,7 @@ export default class Recover extends Component {
   render() {
     return (
       <Main>
-        <div className='event-register'>
+        <div className='event-register animate'>
           <div className='row'>
             <div className='col-md-5 col'>
               <h1>Recuperação de Senha</h1>

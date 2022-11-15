@@ -90,8 +90,8 @@ export default class Categories extends Component {
                     <label className="mx-2 form-check-label" htmlFor="inlineCheckbox3">Estudar</label>
                   </li>
                 </ul>
-                <input type="text" name='word' onChange={this.fillField} value={this.state.word} className="form-control input-sm mx-2 searchName" id="place" placeholder="Nome do Lugar" />
-                <button type="submit" className="btn btn-primary py-0 px-2 ml-2">Pesquisar</button>
+                <input type="text" name='word' onChange={this.fillField} value={this.state.word} className="form-control input-sm py-1 mx-2 searchName" id="place" placeholder="Nome do Lugar" />
+                <button type="submit" className="btn btn-primary py-1 px-2 ml-2">Pesquisar</button>
               </div>
             </form>
           </div>

@@ -1,6 +1,7 @@
 import './Place.css'
 import Main from '../../templates/Main'
 import { Component } from 'react'
+import imgInicio from '../../assets/imgs/inicio.jpg'
 
 export default class PlacePage extends Component {
   state = {
@@ -41,9 +42,7 @@ export default class PlacePage extends Component {
           <h1>{this.state.place.titulo}</h1>
           <hr />
           <div className='row'>
-            <div className='col-5'>
-              <img className='place-thumbnail img-thumbnail' src={this.state.place.thumb} alt={this.state.place.alt} />
-            </div>
+            <div className='col-5'><img className='place-thumbnail img-thumbnail' src={imgInicio} alt='Fachada do edifício Cardeal Leme' /></div>
             <div className='col-6 offset-1'>
               <div id='description'>
                 <h2>Descrição</h2>
