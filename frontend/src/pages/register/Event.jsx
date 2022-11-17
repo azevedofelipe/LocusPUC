@@ -26,6 +26,10 @@ export default class Event extends Component {
 
   registerEvent(e) {
     e.preventDefault()
+    if (this.context.userKey === '') {
+      alert('Usuário Precisa Estar Logado')
+      return
+    }
     const options = {
       method: 'post',
       headers: new Headers (

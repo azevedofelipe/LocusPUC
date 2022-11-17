@@ -2,6 +2,8 @@ import './Place.css'
 import Main from '../../templates/Main'
 import { Component } from 'react'
 import imgInicio from '../../assets/imgs/inicio.jpg'
+import EventBox from '../../components/event/EventBox'
+
 
 export default class PlacePage extends Component {
   state = {
@@ -11,10 +13,11 @@ export default class PlacePage extends Component {
       descricao: '',
       thumb: '',
       alt_text: '',
-      tags: []
-    }
+      tags: [],
+    },
+    events: []
   }
-  
+
   componentDidMount() {
     const currentUrl = window.location.pathname
     let id
@@ -23,7 +26,7 @@ export default class PlacePage extends Component {
     else
       id = currentUrl.charAt(currentUrl.length-2)
     
-    fetch(`http://127.0.0.1:8000/api/lugar/`)
+    fetch('http://127.0.0.1:8000/api/lugar/')
       .then(resp => resp.json())
       .then(places => {
         const placeArr = places.filter((value, idx) => {
@@ -32,8 +35,26 @@ export default class PlacePage extends Component {
         const place = placeArr[0]
         this.setState({ place })
       })
+
+      fetch('http://127.0.0.1:8000/api/eventos')
+        .then(resp => resp.json())
+        .then(events => {
+          const placeEvent = events.filter(event => event['local'] === parseInt(id))
+          if (placeEvent.length === 0)
+            this.setState({ events: [{ id: 1, titulo: 'Não Há Eventos Cadastrados', data_hora: '' }] })
+          else
+            this.setState({ events: placeEvent })
+        })
   }
   
+  renderEvents() {
+    return this.state.events.map(event => {
+      return (
+        <EventBox key={event.id}
+          eventId={event.id} titulo={event.titulo} data={event.data_hora}/>
+      )
+    })
+  }
 
   render() {
     return (
@@ -57,7 +78,7 @@ export default class PlacePage extends Component {
           <div className='row'>
             <div id='comments' className='col-5'>
               <h2>Comentários</h2>
-              <div className=''>
+              <div>
                 <div className='row my-1 placeholder-box'>
                   <p className='my-1 placeholder-text'>Cláudio:</p>
                   <p className='my-1 placeholder-text'>Lugar excelente, só podia ter mais algumas mesas</p>
@@ -70,15 +91,8 @@ export default class PlacePage extends Component {
             </div>
             <div id='events' className='col-5 offset-1'>
               <h2>Eventos</h2>
-              <div className=''>
-                <div className='row my-1 placeholder-box'>
-                  <p className='my-1 placeholder-text'>Estudo para P3 de Cálculo B</p>
-                  <p className='my-1 placeholder-text'>12/11 - 14:30</p>
-                </div>
-                <div className='row my-1 placeholder-box'>
-                  <p className='my-1 placeholder-text'>Feira de Literatura</p>
-                  <p className='my-1 placeholder-text'>5/12 - 12:00</p>
-                </div>
+              <div>
+                {this.renderEvents()}
               </div>
             </div>
           </div>
