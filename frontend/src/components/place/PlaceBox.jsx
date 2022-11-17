@@ -73,7 +73,7 @@ export default class PlaceBox extends Component {
             Autor: {this.props.autor}
           </div>
           <div className="box-content">
-            {this.props.descricao}
+            {this.props.descricao.length < 125 ? this.props.descricao : `${this.props.descricao.slice(0, 125)} ...`}
           </div>
           <div className="box-content">
             Tags: {this.props.tags.join(' ')}

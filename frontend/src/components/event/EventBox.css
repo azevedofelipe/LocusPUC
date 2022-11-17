@@ -1,10 +1,7 @@
-.placeholder-box {
-    background-color:darkgray;
-    width: auto;
-    height: auto;
-
+.event-box h5 {
+    font-size: 25px;
 }
 
-.placeholder-text {
-    color:black;
+.event-box p {
+    font-size: 18px;
 }
