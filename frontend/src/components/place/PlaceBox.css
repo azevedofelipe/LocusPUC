@@ -10,6 +10,18 @@
     font-size: 40px;
 }
 
+.fa {
+    font-size: 35px !important;
+}
+
+.likeVoted {
+    color: green;
+}
+
+.dislikeVoted {
+    color: red;
+}
+
 .like:hover {
     color: green;
 }
