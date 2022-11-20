@@ -7,8 +7,8 @@
 }
 
 .home img {
-  height: 100%;
   width: 100%;
+  height: 100%;
   background-color: var(--accent-color);
   border: none;
 }
@@ -30,4 +30,16 @@
   position:static;
   width:auto;
   height:auto;
+}
+
+@media (min-width: 1200px) {
+  .home img {
+    max-width: 490px !important;
+  }
+}
+
+@media (min-width: 760px) and (max-width: 1200px) {
+  .home img {
+    max-width: 570px !important;
+  }
 }
