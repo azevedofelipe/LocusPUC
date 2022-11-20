@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from .models import Evento
+from .models import Evento, Comentario
 from rest_framework import generics
-from .serializers import EventoSerializer
+from .serializers import EventoSerializer, ComentarioSerializer
 from django_filters import rest_framework as filters
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from backend.permissions import isOwner
@@ -15,7 +15,8 @@ class EventoList(generics.ListCreateAPIView):
     filterset_fields = {
         'local__titulo' : ['contains'],
         'titulo' : ['contains'],
-        'data_hora' : ['gte','lte']
+        'data_hora' : ['gte','lte'],
+        'tags__name' : ['in']
     }
 
     serializer_class = EventoSerializer
@@ -27,3 +28,15 @@ class EventoDetalhes(generics.RetrieveUpdateDestroyAPIView):
 
     serializer_class = EventoSerializer
     queryset = Evento.objects.all()
+
+class ComentarioCriar(generics.ListCreateAPIView):
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    serializer_class = ComentarioSerializer
+    queryset = Comentario.objects.all()
+
+class ComentarioDetalhes(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (isOwner,)
+
+    serializer_class = ComentarioSerializer
+    queryset = Comentario.objects.all()
