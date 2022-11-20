@@ -4,13 +4,13 @@
   margin-top: 40px;
   opacity: 0;
   transform: translateX(-20px);
-  animation: slide-fade 2s 0.2s 1 normal ease forwards;
+  animation: slide-fade 0.7s 0.2s 1 normal ease forwards;
 }
 
 .event-register form {
   opacity: 0;
   transform: translateY(20px);
-  animation: slide-fade 2s 1.2s 1 normal ease forwards;
+  animation: slide-fade 0.7s 0.5s 1 normal ease forwards;
 }
 
 .event-register .img {

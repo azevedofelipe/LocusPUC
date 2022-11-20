@@ -14,8 +14,8 @@
 }
 
 .lugar .place-thumbnail {
-    height: 40%;
-    width: 40%;
+    height: 100%;
+    width: 100%;
     background-color: var(--accent-color);
     border: none;
 }
@@ -28,21 +28,9 @@
     width:1px;
     height:1px;
     overflow:hidden;
-}
-
-.placeholder-box {
-    background-color:darkgray;
-    width: auto;
-    height: auto;
-
-}
-
-.placeholder-text {
-    color:black;
-}
-  
+} 
    
-  .skip_nav a:focus
+.skip_nav a:focus
   {
     background-color: red;
     position:static;

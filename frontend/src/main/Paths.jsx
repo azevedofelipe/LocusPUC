@@ -17,9 +17,9 @@ export default class Paths extends Component {
         <Route path="/registrarConta" element={<Account />} />
         <Route path="/registrarEvento" element={<Event />} />
         <Route path="/registrarLugar" element={<Place />} />
-        <Route path="/categorias" element={<Categories />} />
+        <Route path="/busca" element={<Categories />} />
         <Route path="/recuperar" element={<Recover />} />
-        <Route path="/lugar" element={<PlacePage />} />
+        <Route path="/lugares/:id" element={<PlacePage />} />
         <Route path="*" element={<Home />} />
       </Routes>
     )
