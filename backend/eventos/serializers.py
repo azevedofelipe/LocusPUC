@@ -3,7 +3,7 @@ from rest_framework import serializers
 from taggit.serializers import (TagListSerializerField,TaggitSerializer)
 
 # Serializer para modelo Lugar
-class EventoSerializer(serializers.ModelSerializer):
+class EventoSerializer(TaggitSerializer, serializers.ModelSerializer):
     autor_nome = serializers.ReadOnlyField()
     local_titulo = serializers.ReadOnlyField()
     local_descricao = serializers.ReadOnlyField()
