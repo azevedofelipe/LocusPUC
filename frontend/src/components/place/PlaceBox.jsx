@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faThumbsUp, faThumbsDown } from "@fortawesome/free-regular-svg-icons";
 import { Link } from 'react-router-dom'
@@ -15,7 +14,6 @@ export default class PlaceBox extends Component {
     likes_count: this.props.likes_count,
     dislikes_count: this.props.dislikes_count
   }
-
   constructor(props) {
     super(props)
     this.setValuation = this.setValuation.bind(this)
@@ -57,6 +55,7 @@ export default class PlaceBox extends Component {
         }
       })
   }
+  
 
   render() {
     return (
@@ -80,10 +79,10 @@ export default class PlaceBox extends Component {
           </div >
           <div className="d-flex justify-content-between box-content">
             <div className="icon d-flex justify-content-between align-items-center" onClick={e => this.setValuation(e, 1)}>
-              <FontAwesomeIcon className='like' icon={faThumbsUp} size='2x'/><span className="valuationFontSize">{this.state.likes_count}</span>
+              <i className="fa like fa-regular fa-thumbs-up fa-2xl" onClick={(event) => {event.target.classList.toggle('pressed')}}></i><span className="valuationFontSize mx-2">{this.state.likes_count}</span>
             </div>
             <div className="icon d-flex justify-content-between align-items-center" onClick={e => this.setValuation(e, -1)}>
-              <FontAwesomeIcon className='dislike' icon={faThumbsDown} size='2x'/><span className="valuationFontSize">{this.state.dislikes_count}</span>
+              <i className="fa dislike fa-regular fa-thumbs-down fa-2xl" onClick={(event) => {event.target.classList.toggle('pressed')}}></i><span className="valuationFontSize mx-2">{this.state.dislikes_count}</span>
             </div>
             <div>
               <Link to={`/lugares/${this.props.placeId}`} className="btn btn-secondary mx-3" role="button">

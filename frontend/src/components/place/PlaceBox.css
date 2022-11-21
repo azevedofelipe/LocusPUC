@@ -10,11 +10,34 @@
     font-size: 40px;
 }
 
-.like:hover {
+.fa {
+    font-size:30px;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.fa.like:hover{
     color: green;
 }
 
-.dislike:hover {
+.fa.like:active {
+    color: #3e8e41;
+    transform: translateY(1px);
+}
+.fa.like.pressed{
+    color: green;
+}
+
+
+.fa.dislike:hover{
+    color: red;
+}
+
+.fa.dislike:active {
+    color: #ee3e41;
+    transform: translateY(1px);
+}
+.fa.dislike.pressed{
     color: red;
 }
 
@@ -38,11 +61,6 @@
 
 .div {
   font-family: 'RobotoMono-Thin';
-}
-
-.icon.d-flex {
-    gap: 15px;
-    cursor: pointer;
 }
 
 .valuationFontSize {
