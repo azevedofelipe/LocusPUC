@@ -11,12 +11,18 @@
 }
 
 .fa {
-    font-size:30px;
-    gap: 15px;
-    cursor: pointer;
+    font-size: 35px !important;
 }
 
-.fa.like:hover{
+.likeVoted {
+    color: green;
+}
+
+.dislikeVoted {
+    color: red;
+}
+
+.like:hover {
     color: green;
 }
 

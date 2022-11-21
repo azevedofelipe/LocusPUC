@@ -1,22 +1,45 @@
 import { Component } from "react";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faThumbsUp, faThumbsDown } from "@fortawesome/free-regular-svg-icons";
 import { Link } from 'react-router-dom'
 import LoginContext from '../../context/loginContext'
 import './PlaceBox.css'
 
-library.add(faThumbsUp)
-library.add(faThumbsDown)
+
 export default class PlaceBox extends Component {
   static contextType = LoginContext
 
   state = {
     likes_count: this.props.likes_count,
-    dislikes_count: this.props.dislikes_count
+    dislikes_count: this.props.dislikes_count,
+    all_likes: [],
+    place_like: '',
+    key: ''
   }
   constructor(props) {
     super(props)
     this.setValuation = this.setValuation.bind(this)
+  }
+  
+  componentDidMount() {
+    fetch('http://127.0.0.1:8000/api/lugar/likes/')
+      .then(resp => resp.json())
+      .then(obj => this.setState({ all_likes: obj }))
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.key !== this.context.userKey) {
+      if (!!this.context.userKey === false)
+        return
+      const user_like = this.state.all_likes.filter((likeObj => {
+        return this.context.username === likeObj.user_nome && likeObj.lugar === this.props.placeId
+      }))
+      if (user_like.length === 0)
+        return
+      if (user_like[0].voto === 1)
+        this.setState({ place_like: '1'})
+      else if (user_like[0].voto === -1)
+        this.setState({ place_like: '-1'})
+      this.setState({ key: this.context.userKey })
+    }
   }
 
   setValuation(e, vote) {
@@ -38,19 +61,28 @@ export default class PlaceBox extends Component {
           const optionsPost = { method: 'post', ...options }
           fetch('http://127.0.0.1:8000/api/lugar/likes/', { ...optionsPost, body: JSON.stringify({ autor: this.context.userId, lugar: this.props.placeId, voto: vote }) })
             .then(resp => resp.json())
-            .then(obj => this.setState({ likes_count: obj['lugar_likes'], dislikes_count: obj['lugar_dislikes']}))
+            .then(obj => { 
+              this.setState({ likes_count: obj['lugar_likes'], dislikes_count: obj['lugar_dislikes']}) 
+              this.setState({ place_like: vote.toString() })
+            })
         }
         else {
           const optionsPut = { method: 'put', ...options }
           if (userLike[0]['voto'] === vote) {
             fetch(`http://127.0.0.1:8000/api/lugar/like/${userLike[0]['id']}`, { ...optionsPut, body: JSON.stringify({ autor: this.context.userId, lugar: this.props.placeId, voto: 0 }) })
               .then(resp => resp.json())
-              .then(obj => this.setState({ likes_count: obj['lugar_likes'], dislikes_count: obj['lugar_dislikes']}))
+              .then(obj => { 
+                this.setState({ likes_count: obj['lugar_likes'], dislikes_count: obj['lugar_dislikes']}) 
+                this.setState({ place_like: ''})
+              })
           }
           else {
             fetch(`http://127.0.0.1:8000/api/lugar/like/${userLike[0]['id']}`, { ...optionsPut, body: JSON.stringify({ autor: this.context.userId, lugar: this.props.placeId, voto: vote }) })
               .then(resp => resp.json())
-              .then(obj => this.setState({ likes_count: obj['lugar_likes'], dislikes_count: obj['lugar_dislikes']}))
+              .then(obj => { 
+                this.setState({ likes_count: obj['lugar_likes'], dislikes_count: obj['lugar_dislikes']}) 
+                this.setState({ place_like: vote.toString() })
+              })
           }
         }
       })
@@ -79,10 +111,10 @@ export default class PlaceBox extends Component {
           </div >
           <div className="d-flex justify-content-between box-content">
             <div className="icon d-flex justify-content-between align-items-center" onClick={e => this.setValuation(e, 1)}>
-              <i className="fa like fa-regular fa-thumbs-up fa-2xl" onClick={(event) => {event.target.classList.toggle('pressed')}}></i><span className="valuationFontSize mx-2">{this.state.likes_count}</span>
+              <i class={`fa fa-sharp fa-solid fa-thumbs-up ${this.state.place_like === '1' ? 'likeVoted' : ''} ${!!this.context.userKey === true ? 'like' : ''}`} /><span className="valuationFontSize">{this.state.likes_count}</span>
             </div>
             <div className="icon d-flex justify-content-between align-items-center" onClick={e => this.setValuation(e, -1)}>
-              <i className="fa dislike fa-regular fa-thumbs-down fa-2xl" onClick={(event) => {event.target.classList.toggle('pressed')}}></i><span className="valuationFontSize mx-2">{this.state.dislikes_count}</span>
+              <i class={`fa fa-sharp fa-solid fa-thumbs-down ${this.state.place_like === '-1' ? 'dislikeVoted' : ''} ${!!this.context.userKey === true ? 'dislike' : ''}`} /><span className={`valuationFontSize`}>{this.state.dislikes_count}</span>
             </div>
             <div>
               <Link to={`/lugares/${this.props.placeId}`} className="btn btn-secondary mx-3" role="button">
