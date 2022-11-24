@@ -111,10 +111,10 @@ export default class PlaceBox extends Component {
           </div >
           <div className="d-flex justify-content-between box-content">
             <div className="icon d-flex justify-content-between align-items-center" onClick={e => this.setValuation(e, 1)}>
-              <i class={`fa fa-sharp fa-solid fa-thumbs-up ${this.state.place_like === '1' ? 'likeVoted' : ''} ${!!this.context.userKey === true ? 'like' : ''}`} /><span className="valuationFontSize">{this.state.likes_count}</span>
+              <i className={`fa fa-sharp fa-solid fa-thumbs-up ${this.state.place_like === '1' ? 'likeVoted' : ''} ${!!this.context.userKey === true ? 'like' : ''}`} /><span className="valuationFontSize px-2">{this.state.likes_count}</span>
             </div>
             <div className="icon d-flex justify-content-between align-items-center" onClick={e => this.setValuation(e, -1)}>
-              <i class={`fa fa-sharp fa-solid fa-thumbs-down ${this.state.place_like === '-1' ? 'dislikeVoted' : ''} ${!!this.context.userKey === true ? 'dislike' : ''}`} /><span className={`valuationFontSize`}>{this.state.dislikes_count}</span>
+              <i className={`fa fa-sharp fa-solid fa-thumbs-down ${this.state.place_like === '-1' ? 'dislikeVoted' : ''} ${!!this.context.userKey === true ? 'dislike' : ''}`} /><span className="valuationFontSize px-2">{this.state.dislikes_count}</span>
             </div>
             <div>
               <Link to={`/lugares/${this.props.placeId}`} className="btn btn-secondary mx-3" role="button">
