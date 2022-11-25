@@ -66,7 +66,7 @@ export default class Categories extends Component {
   render() {
     return (
       <Main>
-        <div className='pb-2'>
+        <div className='categories pb-2'>
           <h1 className='display-4'>
             Categorias
           </h1>
@@ -78,15 +78,15 @@ export default class Categories extends Component {
               <div className="form-items form-group align-items-center d-flex justify-content-between mx-5">
                 <ul className='d-flex mt-3'>
                 <li className="d-flex form-check form-check-inline">
-                    <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value='Socializar'/>
+                    <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value='Socializar' name='socialize' onClick={this.fillField}/>
                     <label className="mx-2 form-check-label" htmlFor="inlineCheckbox1">Socializar</label>
                   </li>
                   <li className="d-flex form-check form-check-inline">
-                    <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value='Comer'/>
+                    <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value='Comer' name='eat' onClick={this.fillField}/>
                     <label className="mx-2 form-check-label" htmlFor="inlineCheckbox2">Comer</label>
                   </li>
                   <li className="d-flex form-check form-check-inline">
-                    <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value='Estudar'/>
+                    <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value='Estudar' name='study' onClick={this.fillField}/>
                     <label className="mx-2 form-check-label" htmlFor="inlineCheckbox3">Estudar</label>
                   </li>
                 </ul>

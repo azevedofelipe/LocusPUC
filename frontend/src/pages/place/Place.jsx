@@ -76,7 +76,6 @@ export default class PlacePage extends Component {
   }
 
   renderComments() {
-    console.log(this.state.comments,'a')
     return this.state.comments.map(comment => {
       return (
         <EventBox key={comment.id}
@@ -131,8 +130,8 @@ export default class PlacePage extends Component {
           <h1 className='col col-12 '>{this.state.place.titulo}</h1>
           <hr />
           <div className='row'>
-            <div className='col-5'><img className='place-thumbnail img-thumbnail' src={imgInicio} alt='Fachada do edifício Cardeal Leme' /></div>
-            <div className='col-6 offset-1'>
+            <div className='col-5'><img className='d-none d-xl-block place-thumbnail img-thumbnail' src={imgInicio} alt='Fachada do edifício Cardeal Leme' /></div>
+            <div className='col-12 col-xl-6 offset-xl-1'>
               <div id='description'>
                 <h2>Descrição</h2>
                 <p>{this.state.place.descricao}</p>
@@ -144,7 +143,7 @@ export default class PlacePage extends Component {
             </div>
           </div>
           <div className='row'>
-            <div id='comments' className='col-5'>
+            <div id='comments' className='col-12 col-xl-5'>
               <h2>Comentários</h2>
               <form className='row mb-5' onSubmit={this.submitComment}>
                 <input type="text" className='text-dark rounded col-8'
@@ -155,7 +154,7 @@ export default class PlacePage extends Component {
                 {this.renderComments()}
               </div>
             </div>
-            <div id='events' className='col-5 offset-1'>
+            <div id='events' className='col-12 col-xl-5 offset-xl-1'>
               <h2>Eventos</h2>
               <div>
                 {this.renderEvents()}

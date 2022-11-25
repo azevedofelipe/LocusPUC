@@ -71,8 +71,8 @@ export default class Account extends Component {
     return (
       <Main>
         <div className='account-register'>
-          <div className='row'>
-            <div className='col-md-5 col'>
+          <div className='row text-center text-xl-start'>
+            <div className='col-12 col-xl-6'>
               <h1>Registre Sua Conta</h1>
               <hr />
               <form action='http://127.0.0.1:8000/api/auth/cadastro/' method='post' onSubmit={this.registerUser}>
@@ -99,7 +99,7 @@ export default class Account extends Component {
                 <button type="submit" className="mt-4 mb-4">Criar Conta</button>
               </form>
             </div>
-            <div className='img d-none d-md-block col-md-7 col-12'>
+            <div className='img d-none d-md-flex col-12 col-xl-6 justify-content-center align-items-center'>
               <img className='img-thumbnail' src={imgCadastroConta} alt='Registro' />
             </div>
             {this.state.alert ? <Alert 

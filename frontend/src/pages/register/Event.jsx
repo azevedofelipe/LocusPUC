@@ -40,7 +40,6 @@ export default class Event extends Component {
       ),
       body: JSON.stringify({autor: this.context.userId, local: this.state.id_lugar, data_hora: this.state.data_hora, titulo: this.state.titulo, tags: ['Estudar']})
     }
-    console.log(this.state)
     fetch('http://127.0.0.1:8000/api/eventos/',options)
     .then(function (resp){return resp.json()})
     .then(function (obj){
