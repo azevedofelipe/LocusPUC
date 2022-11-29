@@ -1,5 +1,4 @@
 .box {
-    width: 1000px;
     height: 300px;
     margin-bottom: 30px;
     border: solid 1px black;
@@ -26,7 +25,24 @@
     color: green;
 }
 
-.dislike:hover {
+.fa.like:active {
+    color: #3e8e41;
+    transform: translateY(1px);
+}
+.fa.like.pressed{
+    color: green;
+}
+
+
+.fa.dislike:hover{
+    color: red;
+}
+
+.fa.dislike:active {
+    color: #ee3e41;
+    transform: translateY(1px);
+}
+.fa.dislike.pressed{
     color: red;
 }
 
@@ -50,11 +66,6 @@
 
 .div {
   font-family: 'RobotoMono-Thin';
-}
-
-.icon.d-flex {
-    gap: 15px;
-    cursor: pointer;
 }
 
 .valuationFontSize {

@@ -3,6 +3,7 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import 'font-awesome/css/font-awesome.min.css'
 import LoginContext from '../context/loginContext'
 import { BrowserRouter } from 'react-router-dom'
+import 'font-awesome/css/font-awesome.min.css'
 
 import Nav from '../templates/Nav'
 import Paths from './Paths'

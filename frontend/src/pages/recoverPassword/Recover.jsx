@@ -1,4 +1,3 @@
-import './Recover.css'
 import Main from '../../templates/Main'
 import imgRecuperarSenha from '../../assets/imgs/recuperarSenha.jpg'
 import { Component } from 'react'
@@ -34,7 +33,6 @@ export default class Recover extends Component {
     fetch(`http://127.0.0.1:8000/api/auth/email/${email}`, optionsEmail)
       .then(resp => resp.json())
       .then(obj => {
-        console.log(obj)
         if (!('Erro' in obj)) {
           const optionsId = {
             headers: new Headers({ 
@@ -72,8 +70,8 @@ export default class Recover extends Component {
     return (
       <Main>
         <div className='event-register animate'>
-          <div className='row'>
-            <div className='col-md-5 col'>
+          <div className='row text-center text-xl-start'>
+            <div className='col-12 col-xl-6'>
               <h1>Recuperação de Senha</h1>
               <hr />
               <form onSubmit={e => this.submitPassword(e, this.state.email, this.state.password1, this.state.password2)}>
@@ -95,8 +93,8 @@ export default class Recover extends Component {
                 <button type="submit" className="mt-4 mb-4">Enviar</button>
               </form>
             </div>
-            <div className='img d-none d-md-block col-md-7 col-12'>
-              <img className='img-thumbnail' src={imgRecuperarSenha} alt='Registro' />
+            <div className='img d-none d-md-flex col-12 col-xl-6 justify-content-center align-items-center'>
+              <img className='img-thumbnail mb-5' src={imgRecuperarSenha} alt='Registro' />
             </div>
           </div>
         </div>

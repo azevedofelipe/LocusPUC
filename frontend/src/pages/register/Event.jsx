@@ -38,9 +38,9 @@ export default class Event extends Component {
           'Authorization': `Token ${this.context.userKey}`
         }
       ),
-      body: JSON.stringify({autor: this.context.userId, local: this.state.id_lugar, data_hora: this.state.data_hora, titulo: this.state.titulo})
+      body: JSON.stringify({autor: this.context.userId, local: this.state.id_lugar, data_hora: this.state.data_hora, titulo: this.state.titulo, tags: ['Estudar']})
     }
-    fetch('http://127.0.0.1:8000/api/eventos',options)
+    fetch('http://127.0.0.1:8000/api/eventos/',options)
     .then(function (resp){return resp.json()})
     .then(function (obj){
       if ('titulo' in obj)
@@ -56,8 +56,8 @@ export default class Event extends Component {
     return (
       <Main>
         <div className='event-register'>
-          <div className='row'>
-            <div className='col-md-5 col'>
+          <div className='row text-center text-xl-start'>
+            <div className='col-12 col-xl-6'>
               <h1>Registre Novo Evento</h1>
               <hr />
               <form onSubmit={this.registerEvent}>
@@ -79,7 +79,7 @@ export default class Event extends Component {
                 <button type="submit" className="mt-4 mb-4">Registrar Evento</button>
               </form>
             </div>
-            <div className='img d-none d-md-block col-md-7 col-12'>
+            <div className='img d-none d-md-flex col-12 col-xl-6 justify-content-center align-items-center'>
               <img className='img-thumbnail' src={imgCadastroEvento} alt='Registro' />
             </div>
           </div>
