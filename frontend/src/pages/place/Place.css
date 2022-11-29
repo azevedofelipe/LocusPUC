@@ -19,7 +19,19 @@
     background-color: var(--accent-color);
     border: none;
 }
-  
+
+.lugar input {
+  max-width: 257px;
+}
+
+.lugar button {
+  max-width: 96px;
+}
+
+.lugar .card {
+  max-width: 636px;
+}
+
 .skip_nav {
     background-color: red;
     position:absolute;

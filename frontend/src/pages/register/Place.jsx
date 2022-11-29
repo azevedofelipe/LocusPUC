@@ -63,45 +63,45 @@ export default class Place extends Component {
               <h1>Registre novo local</h1>
               <hr />
               <form onSubmit={this.submitPlace}>
-                <ul>
-                  <li>
-                    <strong>Nome do Local</strong>
-                    <br />
-                    <input type='text' placeholder='Nome do local' required 
-                      name='title' onChange={this.fillField} value={this.state.title}/>
-                  </li>
-                  <li>
-                    <strong>Tipo do Local </strong><br />
-                    <select className='px-2'>
-                      <option value='Socializar'> Socializar </option>
-                      <option value='Comer'> Comer</option>
-                      <option value='Estudar'> Estudar </option>
+                <div className="form-group mt-4">
+                  <label htmlFor="name">Nome do Local</label>
+                  <input type='text' placeholder='Nome do local' id='name' required className='p-2 rounded text-dark'
+                    name='title' onChange={this.fillField} value={this.state.title}/>
+                </div>
+                <div className="form-group mt-4">
+                  <label htmlFor="select">Tipo do Local</label>
+                  <select className='p-2 rounded text-dark' id='select'>
+                      <option value='Socializar' className='text-dark'> Socializar </option>
+                      <option value='Comer' className='text-dark'> Comer</option>
+                      <option value='Estudar' className='text-dark'> Estudar </option>
                     </select>
-                  </li>
-                  <li><strong>Tag do Local </strong></li>
-                  <li className="form-check form-check-inline">
-                    <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value='Socializar'/>
-                    <label className="form-check-label" htmlFor="inlineCheckbox1">Socializar</label>
-                  </li>
-                  <li className="form-check form-check-inline">
-                    <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value='Comer'/>
-                    <label className="form-check-label" htmlFor="inlineCheckbox2">Comer</label>
-                  </li>
-                  <li className="form-check form-check-inline">
-                    <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value='Estudar'/>
-                    <label className="form-check-label" htmlFor="inlineCheckbox3">Estudar</label>
-                  </li>
-                  <li className="form-group">
-                    <br/>
-                    <label htmlFor="story"><strong>Descrição</strong></label>
-                    <textarea id="story" rows="5" cols="33" required
+                </div>
+                <div className="form-group mt-4">
+                  <label htmlFor="tag">Tag do Local</label>
+                  <ul>
+                    <li className="form-check form-check-inline">
+                      <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value='Socializar'/>
+                      <label className="form-check-label" htmlFor="inlineCheckbox1">Socializar</label>
+                    </li>
+                    <li className="form-check form-check-inline">
+                      <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value='Comer'/>
+                      <label className="form-check-label" htmlFor="inlineCheckbox2">Comer</label>
+                    </li>
+                    <li className="form-check form-check-inline">
+                      <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value='Estudar'/>
+                      <label className="form-check-label" htmlFor="inlineCheckbox3">Estudar</label>
+                    </li>
+                  </ul>
+                </div>
+                <div className="form-group mt-4">
+                    <label htmlFor="story">Descrição</label>
+                    <textarea id="story" rows="5" cols="40" required className='rounded text-dark'
                       name='description' onChange={this.fillField} value={this.state.description}
                       ></textarea>
-                  </li>
-                  <li>
-                    <input type="file" id="files" className="hidden" onChange={this.previewImage} required />
-                    <label className='especifico btn btn-success' htmlFor="files">Escolha Imagem</label>
-                  </li>
+                </div>
+                <div className="form-group mt-4">
+                  <label className='especifico btn btn-success' htmlFor="files">Escolha Imagem</label>
+                  <input type="file" id="files" className="hidden" onChange={this.previewImage} required />
                   <li className="form-group">
                     <br/>
                     <label htmlFor="alt_t"><strong>Texto Alternativo da Imagem</strong></label>
@@ -112,11 +112,12 @@ export default class Place extends Component {
                   <li>
                     <button className='btn btn-secondary btn-lg'> Registrar Local</button>
                   </li>
-                </ul>
+                </div>
+                <button className='my-3'> Registrar Local</button>
               </form>
             </div>
-            <div className='imagePreview col-md-7 col-12 my-auto'>
-              <img src={this.state.image} alt='preview'/>
+            <div className={`${this.state.image ? 'd-block' : 'd-none'} imagePreview col-md-7 col-12 my-auto`}>
+              <img src={this.state.image}/>
             </div>
           </div>
         </div>

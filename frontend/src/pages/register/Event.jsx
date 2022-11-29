@@ -38,9 +38,9 @@ export default class Event extends Component {
           'Authorization': `Token ${this.context.userKey}`
         }
       ),
-      body: JSON.stringify({autor: this.context.userId, local: this.state.id_lugar, data_hora: this.state.data_hora, titulo: this.state.titulo})
+      body: JSON.stringify({autor: this.context.userId, local: this.state.id_lugar, data_hora: this.state.data_hora, titulo: this.state.titulo, tags: ['Estudar']})
     }
-    fetch('http://127.0.0.1:8000/api/eventos',options)
+    fetch('http://127.0.0.1:8000/api/eventos/',options)
     .then(function (resp){return resp.json()})
     .then(function (obj){
       if ('titulo' in obj)

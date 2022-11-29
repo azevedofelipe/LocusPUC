@@ -33,7 +33,6 @@ export default class Recover extends Component {
     fetch(`http://127.0.0.1:8000/api/auth/email/${email}`, optionsEmail)
       .then(resp => resp.json())
       .then(obj => {
-        console.log(obj)
         if (!('Erro' in obj)) {
           const optionsId = {
             headers: new Headers({ 
