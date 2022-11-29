@@ -9,7 +9,7 @@ from backend.permissions import isOwner
 
 # API para listar todos os lugares e criar lugares [C]RUD
 class EventoList(generics.ListCreateAPIView):
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    #permission_classes = (IsAuthenticatedOrReadOnly,)
 
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_fields = {

@@ -12,7 +12,7 @@ class EventoSerializer(TaggitSerializer, serializers.ModelSerializer):
 
     class Meta:
         model = Evento
-        fields = ('id','titulo','data_hora','autor','autor_nome','local','local_titulo','local_descricao','tags')
+        fields = ('id','titulo','data_hora','autor','autor_nome','local','local_titulo','local_descricao','tags','texto')
 
 class ComentarioSerializer(serializers.ModelSerializer):
     evento_nome = serializers.ReadOnlyField()

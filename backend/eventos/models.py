@@ -9,6 +9,7 @@ class Evento(models.Model):
     data_hora = models.DateTimeField()
     autor = models.ForeignKey(User,on_delete=models.CASCADE, default=None)
     local = models.ForeignKey(Lugar,on_delete=models.CASCADE, default=None)
+    texto = models.TextField(max_length=500,blank=True)
 
     tags = TaggableManager()
 
