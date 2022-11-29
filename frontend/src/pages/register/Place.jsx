@@ -102,22 +102,18 @@ export default class Place extends Component {
                 <div className="form-group mt-4">
                   <label className='especifico btn btn-success' htmlFor="files">Escolha Imagem</label>
                   <input type="file" id="files" className="hidden" onChange={this.previewImage} required />
-                  <li className="form-group">
-                    <br/>
-                    <label htmlFor="alt_t"><strong>Texto Alternativo da Imagem</strong></label>
-                    <textarea id="alt_t" rows="5" cols="33"
+                </div>
+                <div className="form-group mt-4 my-2">
+                    <label htmlFor="alt_t">Texto Alternativo da Imagem</label>
+                    <textarea id="alt_t" rows="5" cols="33" className='rounded text-dark'
                       name='alt_text' onChange={this.fillField} value={this.state.alt_text}
                       ></textarea>
-                  </li>
-                  <li>
-                    <button className='btn btn-secondary btn-lg'> Registrar Local</button>
-                  </li>
                 </div>
                 <button className='my-3'> Registrar Local</button>
               </form>
             </div>
             <div className={`${this.state.image ? 'd-block' : 'd-none'} imagePreview col-md-7 col-12 my-auto`}>
-              <img src={this.state.image}/>
+              <img src={this.state.image} alt={this.state.alt_text}/>
             </div>
           </div>
         </div>
