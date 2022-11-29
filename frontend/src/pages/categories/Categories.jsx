@@ -3,6 +3,8 @@ import { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Main from '../../templates/Main'
 import PlaceBox from '../../components/place/PlaceBox'
+import imgInicio from '../../assets/imgs/inicio.jpg'
+
 
 export default class Categories extends Component {
 
@@ -58,7 +60,7 @@ export default class Categories extends Component {
       return (
         <PlaceBox key={place.id}
           placeId={place.id} titulo={place.titulo} descricao={place.descricao} autor={place.autor_nome} thumb={place.thumb}
-          tags={place.tags} likes_count={place.likes_count} dislikes_count={place.dislikes_count}/>
+          tags={place.tags} likes_count={place.likes_count} dislikes_count={place.dislikes_count} />
       )
     })
   }
@@ -67,35 +69,39 @@ export default class Categories extends Component {
     return (
       <Main>
         <div className='categories pb-2'>
-          <h1 className='display-4'>
-            Categorias
-          </h1>
-          <hr />
-          <div className='d-flex align-items-center mb-4'>
-            <Link to="/registrarLugar" className="btn btn-secondary mx-3" role="button">Criar Lugar</Link>
-            <Link to="/registrarEvento" className="btn btn-secondary" role="button">Criar Evento</Link>
-            <form className='search form m-0' onSubmit={this.searchPlace}>
-              <div className="form-items form-group align-items-center d-flex justify-content-between mx-5">
-                <ul className='d-flex mt-3'>
-                <li className="d-flex form-check form-check-inline">
-                    <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value='Socializar' name='socialize' onClick={this.fillField}/>
+          <div className='row'>
+            <div className='col-12 col-xl-9'>
+              <h1 className='display-4'>
+                Categorias
+              </h1>
+              <hr />
+              <div className='row'>
+                <div className='col-12 mt-2'>
+                  <Link to="/registrarLugar" className="btn btn-secondary" role="button">Criar Lugar</Link>
+                  <Link to="/registrarEvento" className="btn btn-secondary mx-3" role="button">Criar Evento</Link>
+                </div>
+              </div>
+              <form className='mx-0 my-0 my-xl-2 py-4 row' onSubmit={this.searchPlace}>
+                <ul className='d-flex mt-2 p-0 col-12'>
+                  <li className="d-flex form-check form-check-inline">
+                    <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value='Socializar' name='socialize' onClick={this.fillField} />
                     <label className="mx-2 form-check-label" htmlFor="inlineCheckbox1">Socializar</label>
                   </li>
                   <li className="d-flex form-check form-check-inline">
-                    <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value='Comer' name='eat' onClick={this.fillField}/>
+                    <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value='Comer' name='eat' onClick={this.fillField} />
                     <label className="mx-2 form-check-label" htmlFor="inlineCheckbox2">Comer</label>
                   </li>
                   <li className="d-flex form-check form-check-inline">
-                    <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value='Estudar' name='study' onClick={this.fillField}/>
+                    <input className="form-check-input" type="checkbox" id="inlineCheckbox3" value='Estudar' name='study' onClick={this.fillField} />
                     <label className="mx-2 form-check-label" htmlFor="inlineCheckbox3">Estudar</label>
                   </li>
                 </ul>
-                <input type="text" name='word' onChange={this.fillField} value={this.state.word} className="form-control input-sm py-1 mx-2 searchName" id="place" placeholder="Nome do Lugar" />
-                <button type="submit" className="btn btn-primary py-1 px-2 ml-2">Pesquisar</button>
-              </div>
-            </form>
+                <input type="text" name='word' onChange={this.fillField} value={this.state.word} className="rounded py-2 searchName col-8" id="place" placeholder="Nome do Lugar" />
+                <button type="submit" className="submitButton btn btn-primary py-2 px-2 mx-2 col-4">Pesquisar</button>
+              </form>
+            </div>
           </div>
-          <div>
+          <div className='row'>
             {this.renderPlaces()}
           </div>
         </div>

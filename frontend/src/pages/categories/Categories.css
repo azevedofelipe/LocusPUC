@@ -7,10 +7,11 @@
   animation: slide-fade 0.7s 0.2s 1 normal ease forwards;
 }
 
-.search {
-  width: 300px;
+.submitButton {
+  max-width: 100px;
 }
 
 .searchName {
-  width: 200px;
+  max-width: 300px;
+  max-height: 50px;
 }
