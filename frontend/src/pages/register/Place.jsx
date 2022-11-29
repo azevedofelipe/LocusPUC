@@ -9,6 +9,7 @@ export default class Place extends Component {
 
   state = {
     image: undefined,
+    alt_text: '',
     title: '',
     description: '',
   }
@@ -48,7 +49,7 @@ export default class Place extends Component {
         'Authorization': `Token ${this.context.userKey}` ,
         'Content-Type': 'application/json'
       }),
-      body: JSON.stringify({ autor: this.context.userId, lugar: this.props.placeId, titulo: this.state.title, descricao: this.state.description, tags: Array.from(tags) })
+      body: JSON.stringify({ autor: this.context.userId, lugar: this.props.placeId, titulo: this.state.title, descricao: this.state.description, alt_text: this.state.alt_text, tags: Array.from(tags) })
     }
     fetch('http://127.0.0.1:8000/api/lugar/', optionsPost)
   }
@@ -100,6 +101,13 @@ export default class Place extends Component {
                   <li>
                     <input type="file" id="files" className="hidden" onChange={this.previewImage} required />
                     <label className='especifico btn btn-success' htmlFor="files">Escolha Imagem</label>
+                  </li>
+                  <li className="form-group">
+                    <br/>
+                    <label htmlFor="alt_t"><strong>Texto Alternativo da Imagem</strong></label>
+                    <textarea id="alt_t" rows="5" cols="33"
+                      name='alt_text' onChange={this.fillField} value={this.state.alt_text}
+                      ></textarea>
                   </li>
                   <li>
                     <button className='btn btn-secondary btn-lg'> Registrar Local</button>
