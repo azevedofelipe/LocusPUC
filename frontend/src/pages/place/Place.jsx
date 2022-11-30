@@ -3,6 +3,7 @@ import Main from '../../templates/Main'
 import { Component } from 'react'
 import imgInicio from '../../assets/imgs/inicio.jpg'
 import EventBox from '../../components/event/EventBox'
+import CommentBox from '../../components/comment/CommentBox'
 import LoginContext from '../../context/loginContext'
 
 export default class PlacePage extends Component {
@@ -70,7 +71,7 @@ export default class PlacePage extends Component {
     return this.state.events.map(event => {
       return (
         <EventBox key={event.id}
-          eventId={event.id} titulo={event.titulo} data={event.data_hora}/>
+          eventId={event.id} titulo={event.titulo} descricao={event.texto} data_hora={event.data_hora}/>
       )
     })
   }
@@ -78,8 +79,8 @@ export default class PlacePage extends Component {
   renderComments() {
     return this.state.comments.map(comment => {
       return (
-        <EventBox key={comment.id}
-          eventId={comment.id} titulo={comment.texto} data={comment.autor_nome}/>
+        <CommentBox key={comment.id}
+         commentId={comment.id} texto={comment.texto} autor={comment.autor_nome}/>
       )
     })
   }
