@@ -95,7 +95,7 @@ export default class Place extends Component {
                 </div>
                 <div className="form-group mt-4">
                     <label htmlFor="story">Descrição</label>
-                    <textarea id="story" rows="5" cols="40" required className='rounded text-dark'
+                    <textarea id="story" rows="5" cols="40" required className='rounded text-dark p-2'
                       name='description' onChange={this.fillField} value={this.state.description}
                       ></textarea>
                 </div>
@@ -105,7 +105,7 @@ export default class Place extends Component {
                 </div>
                 <div className="form-group mt-4 my-2">
                     <label htmlFor="alt_t">Texto Alternativo da Imagem</label>
-                    <textarea id="alt_t" rows="5" cols="33" className='rounded text-dark'
+                    <textarea id="alt_t" rows="5" cols="33" className='rounded text-dark p-2'
                       name='alt_text' onChange={this.fillField} value={this.state.alt_text}
                       ></textarea>
                 </div>

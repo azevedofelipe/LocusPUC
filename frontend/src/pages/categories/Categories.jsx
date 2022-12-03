@@ -3,8 +3,6 @@ import { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Main from '../../templates/Main'
 import PlaceBox from '../../components/place/PlaceBox'
-import imgInicio from '../../assets/imgs/inicio.jpg'
-
 
 export default class Categories extends Component {
 
@@ -96,7 +94,7 @@ export default class Categories extends Component {
                     <label className="mx-2 form-check-label" htmlFor="inlineCheckbox3">Estudar</label>
                   </li>
                 </ul>
-                <input type="text" name='word' onChange={this.fillField} value={this.state.word} className="rounded py-2 searchName col-8" id="place" placeholder="Nome do Lugar" />
+                <input type="text" name='word' onChange={this.fillField} value={this.state.word} className="rounded py-2 searchName col-8 text-dark" id="place" placeholder="Nome do Lugar" />
                 <button type="submit" className="submitButton btn btn-primary py-2 px-2 mx-2 col-4">Pesquisar</button>
               </form>
             </div>

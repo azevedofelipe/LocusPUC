@@ -22,6 +22,7 @@
 }
 
 .like:hover {
+    cursor: pointer;
     color: green;
 }
 
@@ -35,6 +36,7 @@
 
 
 .fa.dislike:hover{
+    cursor: pointer;
     color: red;
 }
 
