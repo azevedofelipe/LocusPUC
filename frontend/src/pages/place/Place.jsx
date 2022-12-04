@@ -31,12 +31,12 @@ export default class PlacePage extends Component {
 
   componentDidMount() {
     const currentUrl = window.location.pathname
+    const parseStringId = currentUrl.split('/')
     let id
     if (currentUrl.charAt(currentUrl.length-1) !== '/')
-      id = currentUrl.charAt(currentUrl.length-1)
+      id = parseStringId[parseStringId.length-1]
     else
-      id = currentUrl.charAt(currentUrl.length-2)
-    
+      id = parseStringId[parseStringId.length-2]
     fetch('http://127.0.0.1:8000/api/lugar/')
       .then(resp => resp.json())
       .then(places => {
@@ -127,18 +127,19 @@ export default class PlacePage extends Component {
   render() {
     return (
       <Main>
+        {console.log(this.state.place.titulo)}
         <div className='lugar'>
           <h1 className='col col-12 '>{this.state.place.titulo}</h1>
           <hr />
           <div className='row'>
-            <div className='col-5'><img className='d-none d-xl-block place-thumbnail img-thumbnail' src={imgInicio} alt='Fachada do edifício Cardeal Leme' /></div>
+            <div className='col-5'><img className='d-none d-xl-block place-thumbnail img-thumbnail' src={this.state.place.thumb === '' ? imgInicio : this.state.place.thumb} alt='Fachada do edifício Cardeal Leme' /></div>
             <div className='col-12 col-xl-6 offset-xl-1'>
-              <div id='description'>
-                <h2>Descrição</h2>
+              <div id='description' className='description'>
+                <h2 className='h1'>Descrição</h2>
                 <p>{this.state.place.descricao}</p>
               </div>
-              <div id='tags'>
-                <h2>Tags</h2>
+              <div id='tags' className='tags'>
+                <h2 className='h1'>Tags</h2>
                 <p>{this.state.place.tags.join(' ')}</p>
               </div>
             </div>

@@ -1,7 +1,11 @@
 .comment-box h5 {
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .comment-box p {
     font-size: 18px;
+}
+
+.comment-box .card-text {
+    font-size: 25px;
 }

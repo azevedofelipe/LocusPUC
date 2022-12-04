@@ -51,3 +51,7 @@
     width:100px;
     height:100px;
   }
+
+.lugar .tags, .description {
+  font-size: 25px;
+}

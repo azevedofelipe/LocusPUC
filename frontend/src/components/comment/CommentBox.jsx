@@ -6,7 +6,7 @@ export default class EventBox extends Component {
     return (
       <div className="comment-box row bg-secondary card mb-3">
         <div className="card-body">
-          <h5 className="card-title">{this.props.autor}</h5>
+          <h5 className="card-title">{this.props.autor}:</h5>
           <p className="card-text">{this.props.texto}</p>
         </div>
       </div>

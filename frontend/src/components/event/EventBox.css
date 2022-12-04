@@ -1,7 +1,11 @@
 .event-box h5 {
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .event-box p {
     font-size: 18px;
+}
+
+.event-box .card-text {
+    font-size: 25px;
 }
