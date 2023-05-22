@@ -16,9 +16,12 @@ pip install django-taggit
 pip install pipenv
 pip install django-filter
 pip install django-rest-knox
+pip install python-decouple
 
 pipenv install
 pipenv shell
+
+pip freeze > requirements.txt
 ```
 
 ### Aplicar Migrações
