@@ -5,8 +5,8 @@
 ### Clonar o projeto
 
 ```
-git clone https://github.com/Rodrigosnrocha/Projeto-INF1039
-cd Projeto-INF1039
+git clone https://github.com/azevedofelipe/LocusPUC
+cd LocusPUC
 ```
 
 ### Instalar dependências
